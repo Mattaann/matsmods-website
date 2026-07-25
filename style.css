@@ -676,3 +676,56 @@ footer{
 footer{
     background:transparent;
 }
+.background-image {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    z-index: -2;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    z-index: -1;
+
+    background: linear-gradient(
+        rgba(15,17,21,.55),
+        rgba(15,17,21,.82)
+    );
+}
+.zoom-page::before{
+    background-image:url("../assets/backgrounds/zoom.png");
+}
+
+.notes-page::before{
+    background-image:url("../assets/backgrounds/notes.png");
+}
+
+.minimap-page::before{
+    background-image:url("../assets/backgrounds/minimap.png");
+}
+
+.manager-page::before{
+    background-image:url("../assets/backgrounds/mod-manager.png");
+}
+
+.sethome-page::before{
+    background-image:url("../assets/backgrounds/sethome.png");
+}
