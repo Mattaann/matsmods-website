@@ -141,14 +141,12 @@ nav a:hover {
     gap: 24px;
 }
 
-.mod-card {
-    overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    background: var(--surface);
-    transition:
-        transform 150ms ease,
-        border-color 150ms ease;
+.mod-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background: #222630;
+    padding: 20px;
 }
 
 .mod-card:hover {
@@ -210,4 +208,13 @@ footer {
     .about-section {
         padding: 65px 0;
     }
+
+}
+.mod-card-link{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+}
+.mod-description {
+    white-space: pre-line;
 }
