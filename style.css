@@ -729,3 +729,207 @@ body::after {
 .sethome-page::before{
     background-image:url("../assets/backgrounds/sethome.png");
 }
+.download-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.version-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.version-download-row {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    max-width: 520px;
+}
+
+.version-select {
+    flex: 1;
+    min-width: 0;
+
+    padding: 13px 42px 13px 16px;
+
+    color: white;
+    background-color: rgba(20, 23, 28, 0.95);
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.version-select:hover {
+    border-color: var(--accent);
+}
+
+.version-select:focus {
+    outline: none;
+    border-color: var(--accent);
+
+    box-shadow: 0 0 0 3px rgba(80, 200, 120, 0.15);
+}
+
+.version-select option {
+    color: white;
+    background: #15181d;
+}
+
+.version-download-row .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.download-section > .secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+
+    .version-download-row {
+        flex-direction: column;
+    }
+
+    .version-select,
+    .version-download-row .button,
+    .download-section > .secondary-button {
+        width: 100%;
+    }
+
+}
+/* ========================================
+   DOWNLOAD MODAL
+======================================== */
+
+.download-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+}
+
+.download-modal.open {
+    display: flex;
+}
+
+.download-modal-content {
+    position: relative;
+
+    width: min(100%, 540px);
+    padding: 36px;
+
+    background: rgba(20, 23, 28, 0.98);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.55);
+}
+
+.download-modal-content h2 {
+    margin-top: 8px;
+    margin-bottom: 14px;
+}
+
+.download-modal-text {
+    margin-bottom: 26px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.download-modal-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.download-modal-buttons .button,
+.download-modal-buttons .secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.download-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+
+    font-size: 24px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.download-modal-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.download-modal-note {
+    margin-top: 20px;
+    margin-bottom: 0;
+
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+
+    .download-modal-content {
+        padding: 30px 22px 24px;
+    }
+
+    .download-modal-buttons {
+        flex-direction: column;
+    }
+
+    .download-modal-buttons .button,
+    .download-modal-buttons .secondary-button {
+        width: 100%;
+    }
+
+}
