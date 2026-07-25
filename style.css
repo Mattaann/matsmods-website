@@ -9,6 +9,10 @@
     --border: rgba(255, 255, 255, 0.08);
 }
 
+/* =========================
+   Grundinställningar
+   ========================= */
+
 * {
     box-sizing: border-box;
 }
@@ -16,16 +20,50 @@
 html {
     scroll-behavior: smooth;
 }
-
 body {
     margin: 0;
-    background: var(--background);
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background: #0f1115;
+
     color: var(--text);
-    font-family:
-        Inter,
-        Arial,
-        sans-serif;
+    font-family: Inter, Arial, sans-serif;
     line-height: 1.6;
+}
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: -2;
+
+    pointer-events: none;
+}
+
+.background-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(15,17,21,.72);
+
+    z-index: -1;
+
+    pointer-events: none;
+}
+.hero,
+.mods-section,
+.features-section,
+.about-section,
+.download-section,
+footer {
+    background: transparent;
 }
 
 img {
@@ -42,6 +80,10 @@ a {
     width: min(1120px, calc(100% - 40px));
     margin: 0 auto;
 }
+
+/* =========================
+   Header
+   ========================= */
 
 .site-header {
     position: sticky;
@@ -66,27 +108,50 @@ a {
 
 nav {
     display: flex;
+    align-items: center;
     gap: 24px;
 }
 
 nav a {
     color: var(--muted);
+    transition: color 0.2s ease;
 }
 
 nav a:hover {
     color: var(--text);
 }
 
+/* =========================
+   Startsida – Hero
+   ========================= */
+
 .hero {
     display: flex;
     align-items: center;
     min-height: 620px;
-    background:
-        radial-gradient(
-            circle at top right,
-            rgba(120, 200, 80, 0.15),
-            transparent 40%
-        );
+    background: transparent;
+}
+
+/*
+   Centrerar startsidans hero när den bara innehåller
+   en vanlig .container utan .hero-layout.
+*/
+.hero > .container:not(.hero-layout) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero > .container:not(.hero-layout) .hero-text {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.hero > .container:not(.hero-layout) .hero-buttons {
+    justify-content: center;
 }
 
 .hero h1 {
@@ -97,6 +162,7 @@ nav a:hover {
 }
 
 .eyebrow {
+    margin: 0;
     color: var(--accent);
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -105,48 +171,110 @@ nav a:hover {
 
 .hero-text {
     max-width: 620px;
+    margin-top: 0;
     margin-bottom: 32px;
     color: var(--muted);
     font-size: 1.15rem;
 }
 
-.button {
+/* =========================
+   Knappar
+   ========================= */
+
+.button,
+.card-linkbutton {
     display: inline-block;
     padding: 13px 22px;
+    border: 0;
     border-radius: 8px;
     background: var(--accent);
     color: #111;
     font-weight: 800;
+    text-align: center;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
 }
 
-.button:hover {
+.button:hover,
+.card-linkbutton:hover {
     background: var(--accent-hover);
+    transform: translateY(-2px);
 }
+
+.secondary-button {
+    display: inline-block;
+    padding: 12px 21px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 700;
+    text-align: center;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.secondary-button:hover {
+    border-color: rgba(120, 200, 80, 0.5);
+    background: var(--surface-light);
+    transform: translateY(-2px);
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+/* =========================
+   Startsida – Mods
+   ========================= */
 
 .mods-section,
 .about-section {
     padding: 90px 0;
 }
 
+.mods-section {
+    text-align: center;
+}
+
 .mods-section h2,
 .about-section h2 {
     margin-top: 0;
+    margin-bottom: 16px;
     font-size: 2.2rem;
+}
+
+.mods-section > .container > p {
+    max-width: 680px;
+    margin-right: auto;
+    margin-left: auto;
+    color: var(--muted);
 }
 
 .mod-grid {
     display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 320px));
+    justify-content: center;
     gap: 24px;
+    width: 100%;
+    margin: 40px auto 0;
 }
 
-.mod-card img {
+.mod-card {
+    overflow: hidden;
     width: 100%;
-    height: 250px;
-    object-fit: contain;
-    background: #222630;
-    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+    text-align: left;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .mod-card:hover {
@@ -154,11 +282,19 @@ nav a:hover {
     border-color: rgba(120, 200, 80, 0.5);
 }
 
-.mod-card img {
+.mod-card-link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.mod-card > img {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    height: 250px;
+    padding: 20px;
     background: var(--surface-light);
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .mod-card-content {
@@ -171,6 +307,7 @@ nav a:hover {
 }
 
 .mod-card p {
+    margin: 0 0 18px;
     color: var(--muted);
 }
 
@@ -179,106 +316,151 @@ nav a:hover {
     font-weight: 700;
 }
 
-.about-section {
-    border-top: 1px solid var(--border);
-}
-
-.about-section p {
-    max-width: 680px;
-    color: var(--muted);
-}
-
-footer {
-    padding: 30px 0;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-}
-
-@media (max-width: 600px) {
-    nav {
-        gap: 14px;
-        font-size: 0.9rem;
-    }
-
-    .hero {
-        min-height: 520px;
-    }
-
-    .mods-section,
-    .about-section {
-        padding: 65px 0;
-    }
-
-}
-.mod-card-link{
-    text-decoration:none;
-    color:inherit;
-    display:block;
-}
 .mod-description {
     white-space: pre-line;
 }
+
+/* Kort med både ikon och GIF */
+
 .mod-card-images {
     display: grid;
     grid-template-columns: 1fr 1.7fr;
     gap: 14px;
     align-items: stretch;
     padding: 18px;
-    background: #222630;
+    background: var(--surface-light);
 }
 
 .mod-card-images img {
     width: 100%;
     height: 220px;
-    display: block;
     border-radius: 12px;
 }
 
 .mod-icon {
-    object-fit: contain;
     padding: 12px;
+    object-fit: contain;
 }
 
 .mod-preview {
     object-fit: cover;
 }
-.hero-layout{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:60px;
-    padding:80px 0;
+
+/* =========================
+   About
+   ========================= */
+
+.about-section {
+    border-top: 1px solid var(--border);
+    text-align: center;
 }
 
-.hero-left{
-    flex:1;
+.about-section p {
+    max-width: 680px;
+    margin-right: auto;
+    margin-left: auto;
+    color: var(--muted);
 }
 
-.hero-right{
-    flex:1;
-    display:flex;
-    justify-content:center;
+/* =========================
+   Individuella mod-sidor
+   ========================= */
+
+.hero-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    width: 100%;
+    padding: 80px 0;
 }
 
-.hero-icon{
-    width:220px;
-    margin-bottom:25px;
+.hero-left {
+    flex: 1;
+    min-width: 650;
 }
 
-.hero-preview{
-    width:100%;
-    max-width:700px;
-    border-radius:18px;
-    border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 20px 60px rgba(0,0,0,.35);
+.hero-right {
+    display: flex;
+    flex: 1;
+    justify-content: center;
 }
+
+.hero-icon {
+    width: 220px;
+    margin-bottom: 25px;
+}
+
+.hero-preview {
+    width: 100%;
+    max-width: 700px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.preview-card {
+    overflow: hidden;
+    width: 100%;
+    max-width: 700px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.preview-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.preview-dot.red {
+    background: #ff5f57;
+}
+
+.preview-dot.yellow {
+    background: #febc2e;
+}
+
+.preview-dot.green {
+    background: #28c840;
+}
+
+.preview-title {
+    margin-left: 8px;
+}
+
+.preview-title .eyebrow {
+    font-size: 0.72rem;
+}
+
+.preview-card .hero-preview {
+    max-width: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* =========================
+   Features
+   ========================= */
+
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
-    width: 100%;
-    max-width: 1120px;
-    margin: 40px auto 0;
+    width: min(1120px, calc(100% - 40px));
+    margin: 40px auto 90px;
 }
 
 .feature-card {
@@ -286,6 +468,15 @@ footer {
     border: 1px solid var(--border);
     border-radius: 14px;
     background: var(--surface);
+    text-align: left;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(120, 200, 80, 0.5);
 }
 
 .feature-card h3 {
@@ -298,14 +489,190 @@ footer {
     color: var(--muted);
 }
 
+/* =========================
+   Footer
+   ========================= */
+
+footer {
+    padding: 30px 0;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-content p {
+    max-width: 620px;
+    margin: 10px auto 0;
+}
+
+/* =========================
+   Surfplatta
+   ========================= */
+
 @media (max-width: 900px) {
+    .hero-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    min-height: 75vh;
+    }
+
+    .hero-left,
+    .hero-right {
+        width: 100%;
+    }
+
+    .hero-icon {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .hero-layout .hero-text {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .hero-layout .hero-buttons {
+        justify-content: center;
+    }
+
     .feature-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+/* =========================
+   Mobil
+   ========================= */
+
 @media (max-width: 600px) {
-    .feature-grid {
+    .container {
+        width: min(100% - 28px, 1120px);
+    }
+
+    .site-header .container {
+        min-height: 64px;
+    }
+
+    .logo {
+        font-size: 1.05rem;
+    }
+
+    nav {
+        gap: 14px;
+        font-size: 0.88rem;
+    }
+
+    .hero {
+        min-height: 520px;
+    }
+
+    .hero > .container:not(.hero-layout) {
+        padding: 65px 0;
+    }
+
+    .hero-layout {
+        padding: 60px 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 14vw, 4rem);
+    }
+
+    .hero-text {
+        font-size: 1rem;
+    }
+
+    .mods-section,
+    .about-section {
+        padding: 65px 0;
+    }
+
+    .mod-grid {
         grid-template-columns: 1fr;
     }
+
+    .mod-card-images {
+        grid-template-columns: 1fr;
+    }
+
+    .mod-card-images img {
+        height: 210px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        width: min(100% - 28px, 1120px);
+        margin-bottom: 65px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 300px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .button,
+    .secondary-button,
+    .card-linkbutton {
+        width: 100%;
+    }
+}
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    object-fit: cover;
+    object-position: center;
+
+    pointer-events: none;
+}
+
+.background-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+
+    background: rgba(15, 17, 21, 0.72);
+    pointer-events: none;
+}
+
+.site-header,
+main,
+footer {
+    position: relative;
+    z-index: 2;
+}
+
+.site-header,
+main,
+footer {
+    position: relative;
+    z-index: 2;
+}
+.site-header,
+main,
+footer{
+    position:relative;
+    z-index:1;
+}
+
+.mods-section,
+.features-section,
+.about-section,
+.download-section,
+footer{
+    background:transparent;
 }
