@@ -17,12 +17,14 @@
     <title>Browse Mods | Mat's Mods</title>
 
     <link
-        rel="icon"
-        type="image/png"
-        href="../assets/images/Icons/favicon.png"
-    >
+    rel="icon"
+    type="image/png"
+    href="../assets/images/Icons/favicon.png"
+>
 
-    <style>
+<link rel="stylesheet" href="../style.css">
+
+<style>
         /* =========================
            COLORS
         ========================= */
@@ -1142,44 +1144,38 @@
             </a>
 
         </div>
+        <footer class="site-footer">
+        <div class="container footer-inner">
+
+            <p>
+                © 2026 Mat's Mods. All rights reserved.
+            </p>
+
+            <a href="https://matsmods.se">
+                matsmods.se
+            </a>
+
+        </div>
     </footer>
 
-    <!-- SUPPORT WIDGET -->
+    <!-- GLOBAL SUPPORT BUTTON -->
 
-    <button
-        class="support-button"
-        id="supportButton"
-        type="button"
-        aria-label="Open support"
-        aria-expanded="false"
+    <a
+        href="support.html"
+        class="floating-support-button"
+        aria-label="Open support page"
     >
-        <span class="support-button-icon">?</span>
+        <span
+            class="floating-support-icon"
+            aria-hidden="true"
+        >
+            ?
+        </span>
+
         <span>Support</span>
-    </button>
+    </a>
 
-    <div class="support-panel" id="supportPanel">
-        <!-- resten av support-formuläret här -->
-    </div>
-
-    <script>
-        // support-JavaScript här
-    </script>
-@media (max-width: 520px) {
-    .support-button {
-        right: 16px;
-        bottom: 16px;
-    }
-
-    .support-panel {
-        right: 16px;
-        bottom: 80px;
-
-        width: calc(100vw - 32px);
-        max-height: calc(100vh - 105px);
-
-        padding: 21px;
-    }
-}
 </body>
-
 </html>
+
+   

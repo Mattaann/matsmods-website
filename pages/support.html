@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Get support for Mat's Mods through GitHub."
+    >
+
+    <title>Support | Mat's Mods</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/images/Icons/favicon.png"
+    >
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        .support-page {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: calc(100vh - 73px);
+            padding: 120px 20px 70px;
+        }
+
+        .support-card {
+            width: min(100%, 680px);
+            padding: 48px;
+
+            border: 1px solid rgba(120, 200, 80, 0.22);
+            border-radius: 22px;
+
+            background:
+                radial-gradient(
+                    circle at 85% 10%,
+                    rgba(120, 200, 80, 0.13),
+                    transparent 38%
+                ),
+                rgba(24, 27, 33, 0.96);
+
+            text-align: center;
+
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+        }
+
+        .support-icon {
+            display: grid;
+
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 24px;
+
+            place-items: center;
+
+            border: 1px solid rgba(120, 200, 80, 0.35);
+            border-radius: 50%;
+
+            background: rgba(120, 200, 80, 0.1);
+            color: var(--accent);
+
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        .support-eyebrow {
+            margin: 0 0 12px;
+
+            color: var(--accent);
+
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        .support-card h1 {
+            margin: 0;
+
+            font-size: clamp(2.3rem, 7vw, 4rem);
+            line-height: 1.05;
+            letter-spacing: -0.045em;
+        }
+
+        .support-text {
+            max-width: 540px;
+            margin: 22px auto 0;
+
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .support-info {
+            margin: 28px 0;
+            padding: 19px;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.025);
+
+            color: #c8cbd1;
+            font-size: 0.9rem;
+            line-height: 1.65;
+            text-align: left;
+        }
+
+        .support-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .github-support-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-height: 50px;
+            padding: 0 23px;
+
+            border-radius: 10px;
+
+            background: var(--accent);
+            color: #111;
+
+            font-weight: 800;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .github-support-button:hover {
+            transform: translateY(-2px);
+            background: var(--accent-hover);
+        }
+
+        @media (max-width: 600px) {
+            .support-page {
+                align-items: flex-start;
+                padding-top: 100px;
+            }
+
+            .support-card {
+                padding: 35px 23px;
+            }
+
+            .support-actions {
+                flex-direction: column;
+            }
+
+            .github-support-button,
+            .support-actions .secondary-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+
+            <a href="../index.html" class="logo">
+                Mat's Mods
+            </a>
+
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="mods.html">Mods</a>
+                <a
+                    href="https://github.com/Mattaann/matsmods-website"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    GitHub
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="support-page">
+
+        <section class="support-card">
+
+            <div class="support-icon">?</div>
+
+            <p class="support-eyebrow">
+                Mat's Mods Support
+            </p>
+
+            <h1>Need Help?</h1>
+
+            <p class="support-text">
+                Support requests, bug reports and suggestions are handled
+                through GitHub. Open a new issue and describe what happened
+                as clearly as possible.
+            </p>
+
+            <div class="support-info">
+                Please include the mod name, Minecraft version, mod version
+                and any relevant error messages. Screenshots and log files
+                can also make it easier to understand and solve the problem.
+            </div>
+
+            <div class="support-actions">
+
+                <a
+                    href="https://github.com/Mattaann/matsmods-website/issues/new"
+                    class="github-support-button"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Open GitHub Issue
+                </a>
+
+                <a
+                    href="mods.html"
+                    class="secondary-button"
+                >
+                    Browse Mods
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
