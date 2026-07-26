@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
@@ -22,19 +23,33 @@
     >
 
     <style>
+        /* =========================
+           COLORS
+        ========================= */
+
         :root {
-            --background: #090b10;
-            --surface: rgba(18, 21, 30, 0.88);
-            --surface-hover: rgba(28, 32, 44, 0.96);
-            --border: rgba(255, 255, 255, 0.09);
-            --border-hover: rgba(118, 158, 255, 0.45);
-            --text: #f5f7fb;
-            --text-muted: #a8afbd;
-            --accent: #7ca2ff;
-            --accent-light: #a9c0ff;
-            --success: #79e29e;
-            --warning: #f4c46c;
+            --background: #0f1115;
+            --surface: #181b21;
+            --surface-light: #222630;
+            --surface-hover: #262b35;
+
+            --text: #f4f4f5;
+            --muted: #a5a8b0;
+
+            --accent: #78c850;
+            --accent-hover: #8cdb63;
+
+            --success: #78c850;
+            --warning: #f0bd62;
+
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(120, 200, 80, 0.5);
         }
+
+
+        /* =========================
+           BASIC SETTINGS
+        ========================= */
 
         * {
             box-sizing: border-box;
@@ -48,25 +63,16 @@
             margin: 0;
             min-height: 100vh;
             overflow-x: hidden;
-            background:
-                radial-gradient(
-                    circle at top,
-                    rgba(50, 75, 130, 0.15),
-                    transparent 40%
-                ),
-                var(--background);
+
+            background: var(--background);
             color: var(--text);
+
             font-family:
                 Inter,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
+                Arial,
                 sans-serif;
-        }
 
-        a {
-            color: inherit;
+            line-height: 1.6;
         }
 
         img {
@@ -74,52 +80,61 @@
             max-width: 100%;
         }
 
-        .container {
-            width: min(1180px, calc(100% - 40px));
-            margin-inline: auto;
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        /* NAVBAR */
+        .container {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
 
         .site-header {
             position: fixed;
             top: 0;
             left: 0;
             z-index: 100;
+
             width: 100%;
+
             border-bottom: 1px solid var(--border);
-            background: rgba(9, 11, 16, 0.82);
-            backdrop-filter: blur(18px);
+            background: rgba(15, 17, 21, 0.9);
+            backdrop-filter: blur(12px);
         }
 
         .navbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            min-height: 72px;
             gap: 30px;
+
+            min-height: 72px;
         }
 
         .logo {
             color: var(--text);
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 800;
-            letter-spacing: -0.03em;
-            text-decoration: none;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 24px;
         }
 
         .nav-links a {
             position: relative;
-            color: var(--text-muted);
+
+            color: var(--muted);
             font-size: 0.95rem;
-            font-weight: 500;
-            text-decoration: none;
+
             transition: color 0.2s ease;
         }
 
@@ -133,55 +148,70 @@
             right: 0;
             bottom: -10px;
             left: 0;
+
             height: 2px;
+
             border-radius: 999px;
             background: var(--accent);
+
             content: "";
         }
 
-        /* HERO */
+
+        /* =========================
+           HERO
+        ========================= */
 
         .mods-hero {
             position: relative;
+
             display: flex;
-            min-height: 440px;
             align-items: flex-end;
+
+            min-height: 470px;
             overflow: hidden;
-            padding: 145px 0 75px;
+
+            padding: 150px 0 75px;
+
             border-bottom: 1px solid var(--border);
         }
 
         .mods-hero-background {
             position: absolute;
             inset: 0;
+
             background-image:
                 linear-gradient(
                     to right,
-                    rgba(9, 11, 16, 0.98) 5%,
-                    rgba(9, 11, 16, 0.74) 55%,
-                    rgba(9, 11, 16, 0.88) 100%
+                    rgba(15, 17, 21, 0.98) 0%,
+                    rgba(15, 17, 21, 0.72) 58%,
+                    rgba(15, 17, 21, 0.88) 100%
                 ),
                 linear-gradient(
                     to top,
-                    #090b10 0%,
-                    transparent 70%
+                    #0f1115 0%,
+                    transparent 75%
                 ),
                 url("../assets/backgrounds/minimap.png");
+
             background-position: center;
             background-size: cover;
-            opacity: 0.82;
-            transform: scale(1.03);
+            background-repeat: no-repeat;
+
+            transform: scale(1.02);
         }
 
         .mods-hero::after {
             position: absolute;
             inset: 0;
+
             background:
                 radial-gradient(
-                    circle at 70% 30%,
-                    rgba(124, 162, 255, 0.18),
-                    transparent 35%
+                    circle at 72% 32%,
+                    rgba(120, 200, 80, 0.16),
+                    transparent 36%
                 );
+
             content: "";
             pointer-events: none;
         }
@@ -189,6 +219,7 @@
         .hero-content {
             position: relative;
             z-index: 2;
+
             max-width: 720px;
         }
 
@@ -196,39 +227,50 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 18px;
+
+            margin: 0 0 18px;
             padding: 7px 12px;
-            border: 1px solid rgba(124, 162, 255, 0.25);
+
+            border: 1px solid rgba(120, 200, 80, 0.28);
             border-radius: 999px;
-            background: rgba(124, 162, 255, 0.1);
-            color: var(--accent-light);
+
+            background: rgba(120, 200, 80, 0.1);
+            color: var(--accent);
+
             font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
+            font-weight: 800;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
         }
 
         .eyebrow::before {
             width: 7px;
             height: 7px;
+
             border-radius: 50%;
             background: var(--accent);
-            box-shadow: 0 0 12px rgba(124, 162, 255, 0.8);
+
+            box-shadow: 0 0 12px rgba(120, 200, 80, 0.8);
+
             content: "";
         }
 
         .hero-content h1 {
-            max-width: 720px;
+            max-width: 750px;
+
             margin: 0;
-            font-size: clamp(3rem, 7vw, 5.8rem);
-            line-height: 0.95;
-            letter-spacing: -0.055em;
+
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 1;
+            letter-spacing: -0.05em;
         }
 
-        .hero-content p {
+        .hero-content > p {
             max-width: 650px;
+
             margin: 24px 0 0;
-            color: #c2c8d4;
+
+            color: #c2c5cc;
             font-size: 1.05rem;
             line-height: 1.75;
         }
@@ -237,6 +279,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
+
             margin-top: 28px;
         }
 
@@ -244,26 +287,35 @@
             display: flex;
             align-items: center;
             gap: 9px;
+
             padding: 9px 13px;
+
             border: 1px solid var(--border);
             border-radius: 10px;
-            background: rgba(10, 12, 18, 0.58);
-            color: #d5d9e2;
+
+            background: rgba(15, 17, 21, 0.65);
+            color: #d5d7dc;
+
             font-size: 0.82rem;
+
             backdrop-filter: blur(10px);
         }
 
         .hero-stat-dot {
             width: 7px;
             height: 7px;
+
             border-radius: 50%;
             background: var(--success);
         }
 
-        /* MOD LIBRARY */
+
+        /* =========================
+           MOD LIBRARY
+        ========================= */
 
         .mods-library {
-            padding: 75px 0 110px;
+            padding: 80px 0 110px;
         }
 
         .library-heading {
@@ -271,51 +323,65 @@
             align-items: flex-end;
             justify-content: space-between;
             gap: 30px;
-            margin-bottom: 28px;
+
+            margin-bottom: 32px;
         }
 
         .library-heading h2 {
             margin: 0 0 9px;
+
             font-size: clamp(1.8rem, 4vw, 2.5rem);
             letter-spacing: -0.035em;
         }
 
         .library-heading p {
             max-width: 620px;
+
             margin: 0;
-            color: var(--text-muted);
+
+            color: var(--muted);
             line-height: 1.65;
         }
 
         .mods-count {
             flex-shrink: 0;
+
             padding: 8px 13px;
+
             border: 1px solid var(--border);
             border-radius: 999px;
+
             background: rgba(255, 255, 255, 0.035);
-            color: var(--text-muted);
+            color: var(--muted);
+
             font-size: 0.82rem;
         }
 
-        /* GRID */
+
+        /* =========================
+           MOD GRID
+        ========================= */
 
         .mods-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 18px;
+            gap: 20px;
         }
 
         .mod-card {
             position: relative;
+
             display: flex;
             min-width: 0;
             flex-direction: column;
             overflow: hidden;
+
             border: 1px solid var(--border);
-            border-radius: 18px;
+            border-radius: 16px;
+
             background: var(--surface);
             color: var(--text);
-            text-decoration: none;
+
             transition:
                 transform 0.22s ease,
                 border-color 0.22s ease,
@@ -324,50 +390,60 @@
         }
 
         .mod-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-5px);
+
             border-color: var(--border-hover);
             background: var(--surface-hover);
+
             box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
         }
 
+
+        /* =========================
+           MOD IMAGES
+        ========================= */
+
         .mod-card-image {
             position: relative;
-            overflow: hidden;
-            aspect-ratio: 16 / 10;
-            background: #10131a;
-        }
 
-        .mod-card-image::after {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            height: 45%;
-            background: linear-gradient(
-                to top,
-                rgba(12, 14, 20, 0.85),
-                transparent
-            );
-            content: "";
-            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+
+            background: var(--surface-light);
         }
 
         .mod-card-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+
+            padding: 18px;
+
+            object-fit: contain;
+            object-position: center;
+
             transition: transform 0.3s ease;
         }
 
         .mod-card:hover .mod-card-image img {
-            transform: scale(1.055);
+            transform: scale(1.025);
         }
+
+
+        /* =========================
+           MOD CONTENT
+        ========================= */
 
         .mod-card-content {
             display: flex;
             flex: 1;
             flex-direction: column;
-            padding: 17px;
+
+            padding: 18px;
         }
 
         .mod-card-top {
@@ -379,6 +455,7 @@
 
         .mod-card h3 {
             margin: 0;
+
             font-size: 1.08rem;
             line-height: 1.3;
             letter-spacing: -0.02em;
@@ -386,24 +463,30 @@
 
         .status {
             flex-shrink: 0;
+
             padding: 5px 8px;
+
             border-radius: 999px;
-            background: rgba(121, 226, 158, 0.11);
+
+            background: rgba(120, 200, 80, 0.12);
             color: var(--success);
+
             font-size: 0.64rem;
-            font-weight: 700;
+            font-weight: 800;
             white-space: nowrap;
         }
 
         .status.development {
-            background: rgba(244, 196, 108, 0.11);
+            background: rgba(240, 189, 98, 0.12);
             color: var(--warning);
         }
 
         .mod-card p {
             flex: 1;
+
             margin: 12px 0 0;
-            color: var(--text-muted);
+
+            color: var(--muted);
             font-size: 0.86rem;
             line-height: 1.55;
         }
@@ -412,15 +495,20 @@
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
+
             margin-top: 17px;
+            padding-right: 32px;
         }
 
         .mod-tags span {
             padding: 5px 8px;
+
             border: 1px solid var(--border);
             border-radius: 7px;
+
             background: rgba(255, 255, 255, 0.025);
-            color: #b6bdc9;
+            color: #b6bac3;
+
             font-size: 0.67rem;
         }
 
@@ -428,17 +516,23 @@
             position: absolute;
             right: 13px;
             bottom: 13px;
+
             display: grid;
             width: 28px;
             height: 28px;
             place-items: center;
+
             border: 1px solid var(--border);
             border-radius: 50%;
+
             background: rgba(255, 255, 255, 0.04);
-            color: var(--text-muted);
+            color: var(--muted);
+
             font-size: 0.85rem;
+
             opacity: 0;
             transform: translateX(-5px);
+
             transition:
                 opacity 0.2s ease,
                 transform 0.2s ease,
@@ -446,12 +540,15 @@
         }
 
         .mod-card:hover .card-arrow {
-            color: var(--accent-light);
+            color: var(--accent);
             opacity: 1;
             transform: translateX(0);
         }
 
-        /* COMPATIBILITY */
+
+        /* =========================
+           COMPATIBILITY
+        ========================= */
 
         .compatibility {
             padding-bottom: 110px;
@@ -459,53 +556,68 @@
 
         .compatibility-box {
             position: relative;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 50px;
             overflow: hidden;
+
             padding: 44px;
-            border: 1px solid rgba(124, 162, 255, 0.18);
+
+            border: 1px solid rgba(120, 200, 80, 0.2);
             border-radius: 22px;
+
             background:
                 radial-gradient(
                     circle at 85% 20%,
-                    rgba(124, 162, 255, 0.13),
+                    rgba(120, 200, 80, 0.12),
                     transparent 40%
                 ),
-                rgba(18, 21, 30, 0.78);
+                rgba(24, 27, 33, 0.92);
         }
 
         .compatibility-content {
             position: relative;
             z-index: 1;
+
             max-width: 690px;
         }
 
         .compatibility-box h2 {
-            margin: 10px 0 13px;
+            margin: 0 0 13px;
+
             font-size: clamp(1.8rem, 4vw, 2.7rem);
             letter-spacing: -0.04em;
         }
 
         .compatibility-box p {
             margin: 0;
-            color: var(--text-muted);
+
+            color: var(--muted);
             line-height: 1.7;
         }
 
         .button {
             position: relative;
             z-index: 1;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
-            padding: 13px 20px;
-            border: 1px solid rgba(124, 162, 255, 0.35);
-            border-radius: 10px;
-            background: rgba(124, 162, 255, 0.12);
-            color: #dbe5ff;
+
+            padding: 13px 22px;
+
+            border: 0;
+            border-radius: 8px;
+
+            background: var(--accent);
+            color: #111;
+
             font-size: 0.9rem;
-            font-weight: 700;
-            text-decoration: none;
+            font-weight: 800;
+
             transition:
                 background 0.2s ease,
                 transform 0.2s ease;
@@ -513,15 +625,20 @@
 
         .button:hover {
             transform: translateY(-2px);
-            background: rgba(124, 162, 255, 0.2);
+            background: var(--accent-hover);
         }
 
-        /* FOOTER */
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         .site-footer {
             padding: 30px 0;
+
             border-top: 1px solid var(--border);
-            color: var(--text-muted);
+
+            color: var(--muted);
         }
 
         .footer-inner {
@@ -529,6 +646,7 @@
             align-items: center;
             justify-content: space-between;
             gap: 20px;
+
             font-size: 0.85rem;
         }
 
@@ -537,15 +655,17 @@
         }
 
         .footer-inner a {
-            color: var(--text-muted);
-            text-decoration: none;
+            color: var(--muted);
         }
 
         .footer-inner a:hover {
             color: var(--text);
         }
 
-        /* RESPONSIVE */
+
+        /* =========================
+           TABLET
+        ========================= */
 
         @media (max-width: 1050px) {
             .mods-grid {
@@ -565,21 +685,31 @@
             }
         }
 
+
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 620px) {
             .container {
-                width: min(100% - 28px, 1180px);
+                width: min(100% - 28px, 1120px);
             }
 
             .navbar {
                 min-height: 64px;
             }
 
+            .logo {
+                font-size: 1.05rem;
+            }
+
             .nav-links {
-                gap: 18px;
+                gap: 16px;
+                font-size: 0.9rem;
             }
 
             .mods-hero {
-                min-height: 420px;
+                min-height: 430px;
                 padding: 125px 0 55px;
             }
 
@@ -587,8 +717,12 @@
                 font-size: clamp(2.8rem, 15vw, 4.2rem);
             }
 
+            .hero-content > p {
+                font-size: 0.95rem;
+            }
+
             .mods-library {
-                padding: 55px 0 80px;
+                padding: 60px 0 80px;
             }
 
             .library-heading {
@@ -603,13 +737,17 @@
 
             .mod-card {
                 display: grid;
-                grid-template-columns: 125px minmax(0, 1fr);
+                grid-template-columns: 145px minmax(0, 1fr);
             }
 
             .mod-card-image {
+                width: 145px;
                 height: 100%;
-                min-height: 175px;
-                aspect-ratio: auto;
+                min-height: 190px;
+            }
+
+            .mod-card-image img {
+                padding: 12px;
             }
 
             .compatibility {
@@ -620,26 +758,34 @@
                 padding: 30px 24px;
             }
 
+            .button {
+                width: 100%;
+            }
+
             .footer-inner {
                 align-items: flex-start;
                 flex-direction: column;
             }
         }
 
-        @media (max-width: 430px) {
+        @media (max-width: 450px) {
             .mod-card {
                 display: flex;
             }
 
             .mod-card-image {
+                width: 100%;
+                height: 220px;
                 min-height: 0;
-                aspect-ratio: 16 / 9;
             }
         }
     </style>
 </head>
 
+
 <body>
+
+    <!-- HEADER -->
 
     <header class="site-header">
         <div class="container navbar">
@@ -651,6 +797,9 @@
             <nav class="nav-links">
                 <a href="../index.html">Home</a>
                 <a href="mods.html" class="active">Mods</a>
+                <a href="https://github.com/Mattaann/matsmods-website" target="_blank" rel="noopener">
+        GitHub
+    </a>
             </nav>
 
         </div>
@@ -668,7 +817,6 @@
             <div class="container">
                 <div class="hero-content">
 
-                    </span>
 
                     <h1>Browse All Mods</h1>
 
@@ -676,7 +824,7 @@
                         Explore a growing collection of lightweight, useful
                         and customizable Minecraft mods. Every Mat's Mod is
                         designed to work seamlessly with the rest of the
-                        collection.
+                        collection while preserving the vanilla feel.
                     </p>
 
                     <div class="hero-stats">
@@ -718,7 +866,7 @@
 
                         <p>
                             Select a mod to view its features, supported
-                            versions and available downloads.
+                            Minecraft versions and available downloads.
                         </p>
                     </div>
 
@@ -731,7 +879,7 @@
 
                 <div class="mods-grid">
 
-                    <!-- ZOOM -->
+                    <!-- MAT'S ZOOM -->
 
                     <a href="zoom.html" class="mod-card">
 
@@ -766,7 +914,7 @@
                     </a>
 
 
-                    <!-- NOTES -->
+                    <!-- MAT'S NOTES -->
 
                     <a href="notes.html" class="mod-card">
 
@@ -801,7 +949,7 @@
                     </a>
 
 
-                    <!-- MINIMAP -->
+                    <!-- MAT'S MINIMAP -->
 
                     <a href="minimap.html" class="mod-card">
 
@@ -839,7 +987,7 @@
                     </a>
 
 
-                    <!-- SET HOME -->
+                    <!-- MAT'S SET HOME -->
 
                     <a href="sethome.html" class="mod-card">
 
@@ -874,7 +1022,7 @@
                     </a>
 
 
-                    <!-- MOD MANAGER -->
+                    <!-- MAT'S MOD MANAGER -->
 
                     <a href="mod-manager.html" class="mod-card">
 
@@ -890,8 +1038,8 @@
                             <div class="mod-card-top">
                                 <h3>Mat's Mod Manager</h3>
 
-                                <span class="status development">
-                                    In Development
+                                <span class="status available">
+                                    Available
                                 </span>
                             </div>
 
@@ -926,8 +1074,6 @@
 
                     <div class="compatibility-content">
 
-                        </span>
-
                         <h2>Every Mat's Mod Works Together</h2>
 
                         <p>
@@ -951,6 +1097,8 @@
     </main>
 
 
+    <!-- FOOTER -->
+
     <footer class="site-footer">
         <div class="container footer-inner">
 
@@ -966,4 +1114,5 @@
     </footer>
 
 </body>
+
 </html>
