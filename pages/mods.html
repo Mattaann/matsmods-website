@@ -25,9 +25,6 @@
 <link rel="stylesheet" href="../style.css">
 
 <style>
-        /* =========================
-           COLORS
-        ========================= */
 
         :root {
             --background: #0f1115;
@@ -47,11 +44,6 @@
             --border: rgba(255, 255, 255, 0.08);
             --border-hover: rgba(120, 200, 80, 0.5);
         }
-
-
-        /* =========================
-           BASIC SETTINGS
-        ========================= */
 
         * {
             box-sizing: border-box;
@@ -91,11 +83,6 @@
             width: min(1120px, calc(100% - 40px));
             margin: 0 auto;
         }
-
-
-        /* =========================
-           HEADER
-        ========================= */
 
         .site-header {
             position: fixed;
@@ -158,11 +145,6 @@
 
             content: "";
         }
-
-
-        /* =========================
-           HERO
-        ========================= */
 
         .mods-hero {
             position: relative;
@@ -310,12 +292,6 @@
             border-radius: 50%;
             background: var(--success);
         }
-
-
-        /* =========================
-           MOD LIBRARY
-        ========================= */
-
         .mods-library {
             padding: 80px 0 110px;
         }
@@ -359,11 +335,6 @@
             font-size: 0.82rem;
         }
 
-
-        /* =========================
-           MOD GRID
-        ========================= */
-
         .mods-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -399,12 +370,6 @@
 
             box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
         }
-
-
-        /* =========================
-           MOD IMAGES
-        ========================= */
-
         .mod-card-image {
             position: relative;
 
@@ -434,12 +399,6 @@
         .mod-card:hover .mod-card-image img {
             transform: scale(1.025);
         }
-
-
-        /* =========================
-           MOD CONTENT
-        ========================= */
-
         .mod-card-content {
             display: flex;
             flex: 1;
@@ -546,12 +505,6 @@
             opacity: 1;
             transform: translateX(0);
         }
-
-
-        /* =========================
-           COMPATIBILITY
-        ========================= */
-
         .compatibility {
             padding-bottom: 110px;
         }
@@ -629,12 +582,6 @@
             transform: translateY(-2px);
             background: var(--accent-hover);
         }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
         .site-footer {
             padding: 30px 0;
 
@@ -663,12 +610,6 @@
         .footer-inner a:hover {
             color: var(--text);
         }
-
-
-        /* =========================
-           TABLET
-        ========================= */
-
         @media (max-width: 1050px) {
             .mods-grid {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -686,12 +627,6 @@
                 gap: 28px;
             }
         }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
         @media (max-width: 620px) {
             .container {
                 width: min(100% - 28px, 1120px);
@@ -787,8 +722,6 @@
 
 <body>
 
-    <!-- HEADER -->
-
     <header class="site-header">
         <div class="container navbar">
 
@@ -798,7 +731,7 @@
 
             <nav class="nav-links">
                 <a href="../index.html">Home</a>
-                <a href="mods.html" class="active">Mods</a>
+                <a href="mods.html" class="active">Minecraft Mods</a>
                 <a href="https://github.com/Mattaann/matsmods-website" target="_blank" rel="noopener">
         GitHub
     </a>
@@ -809,8 +742,6 @@
 
 
     <main>
-
-        <!-- HERO -->
 
         <section class="mods-hero">
 
@@ -855,9 +786,6 @@
 
         </section>
 
-
-        <!-- MOD LIBRARY -->
-
         <section class="mods-library">
             <div class="container">
 
@@ -882,8 +810,6 @@
                 
 
                 <div class="mods-grid">
-
-                     <!-- MAT'S KINGDOM QUESTS-->
 
                     <a href="kingdomequests.html" class="mod-card">
 
@@ -919,8 +845,6 @@
 
                     </a>
 
-                    <!-- MAT'S ZOOM -->
-
                     <a href="zoom.html" class="mod-card">
 
                         <div class="mod-card-image">
@@ -951,9 +875,6 @@
                         <span class="card-arrow">→</span>
 
                     </a>
-
-
-                    <!-- MAT'S NOTES -->
 
                     <a href="notes.html" class="mod-card">
 
@@ -986,9 +907,6 @@
 
                     </a>
 
-
-                    <!-- MAT'S SET HOME -->
-
                     <a href="sethome.html" class="mod-card">
 
                         <div class="mod-card-image">
@@ -1019,9 +937,6 @@
                         <span class="card-arrow">→</span>
 
                     </a>
-
-
-                    <!-- MAT'S MOD MANAGER -->
 
                     <a href="mod-manager.html" class="mod-card">
 
@@ -1095,10 +1010,6 @@
 
             </div>
         </section>
-    
-
-
-        <!-- COMPATIBILITY -->
 
         <section class="compatibility">
             <div class="container">
@@ -1157,8 +1068,6 @@
 
         </div>
     </footer>
-
-    <!-- GLOBAL SUPPORT BUTTON -->
 
     <a
         href="support.html"
