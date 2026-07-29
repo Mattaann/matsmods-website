@@ -1,3 +1,8 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
 :root {
     --background: #0f1115;
     --surface: #181b21;
@@ -8,11 +13,6 @@
     --accent-hover: #8cdb63;
     --border: rgba(255, 255, 255, 0.08);
 }
-
-/* =========================
-   Grundinställningar
-   ========================= */
-
 * {
     box-sizing: border-box;
 }
@@ -80,11 +80,6 @@ a {
     width: min(1120px, calc(100% - 40px));
     margin: 0 auto;
 }
-
-/* =========================
-   Header
-   ========================= */
-
 .site-header {
     position: sticky;
     top: 0;
@@ -120,11 +115,6 @@ nav a {
 nav a:hover {
     color: var(--text);
 }
-
-/* =========================
-   Startsida – Hero
-   ========================= */
-
 .hero {
     display: flex;
     align-items: center;
@@ -176,11 +166,6 @@ nav a:hover {
     color: var(--muted);
     font-size: 1.15rem;
 }
-
-/* =========================
-   Knappar
-   ========================= */
-
 .button,
 .card-linkbutton {
     display: inline-block;
@@ -228,11 +213,6 @@ nav a:hover {
     flex-wrap: wrap;
     gap: 14px;
 }
-
-/* =========================
-   Startsida – Mods
-   ========================= */
-
 .mods-section,
 .about-section {
     padding: 90px 0;
@@ -319,9 +299,6 @@ nav a:hover {
 .mod-description {
     white-space: pre-line;
 }
-
-/* Kort med både ikon och GIF */
-
 .mod-card-images {
     display: grid;
     grid-template-columns: 1fr 1.7fr;
@@ -345,11 +322,6 @@ nav a:hover {
 .mod-preview {
     object-fit: cover;
 }
-
-/* =========================
-   About
-   ========================= */
-
 .about-section {
     border-top: 1px solid var(--border);
     text-align: center;
@@ -361,11 +333,6 @@ nav a:hover {
     margin-left: auto;
     color: var(--muted);
 }
-
-/* =========================
-   Individuella mod-sidor
-   ========================= */
-
 .hero-layout {
     display: flex;
     align-items: center;
@@ -450,11 +417,6 @@ nav a:hover {
     border-radius: 0;
     box-shadow: none;
 }
-
-/* =========================
-   Features
-   ========================= */
-
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -488,11 +450,6 @@ nav a:hover {
     margin: 0;
     color: var(--muted);
 }
-
-/* =========================
-   Footer
-   ========================= */
-
 footer {
     padding: 30px 0;
     border-top: 1px solid var(--border);
@@ -507,11 +464,6 @@ footer {
     max-width: 620px;
     margin: 10px auto 0;
 }
-
-/* =========================
-   Surfplatta
-   ========================= */
-
 @media (max-width: 900px) {
     .hero-layout {
     display: flex;
@@ -544,11 +496,6 @@ footer {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
-
-/* =========================
-   Mobil
-   ========================= */
-
 @media (max-width: 600px) {
     .container {
         width: min(100% - 28px, 1120px);
@@ -817,10 +764,6 @@ body::after {
     }
 
 }
-/* ========================================
-   DOWNLOAD MODAL
-======================================== */
-
 .download-modal {
     position: fixed;
     inset: 0;
@@ -933,10 +876,6 @@ body.modal-open {
     }
 
 }
-/* =========================
-   MODS PAGE
-========================= */
-
 .mods-page-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -977,11 +916,6 @@ body.modal-open {
 
     box-shadow: 0 14px 34px rgba(120, 200, 80, 0.3);
 }
-/* ========================================
-   GLOBAL SUPPORT BUTTON
-   Används på alla sidor
-======================================== */
-
 .floating-support-button {
     position: fixed;
     right: 24px;
@@ -1056,9 +990,6 @@ body.modal-open {
     font-weight: 900;
     line-height: 1;
 }
-
-/* Lite mindre knapp på mobil */
-
 @media (max-width: 520px) {
     .floating-support-button {
         right: 16px;
