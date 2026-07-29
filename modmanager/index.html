@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Mat's Mod Manager - Manage Mat's Mods and built-in quality-of-life features directly inside Minecraft."
+    >
+
+    <title>Mat's Mod Manager | Mat's Mods</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <link
+    rel="icon"
+    type="image/png"
+    href="../assets/images/icons/favicon.png"
+   > 
+    <style>
+
+        .hero-layout {
+            width: min(92%, 1400px);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-section > .container {
+            width: min(92%, 1400px);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-content {
+            width: min(92%, 1400px);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
+
+</head>
+
+<body class="manager-page">
+
+<header class="site-header">
+
+    <div class="container">
+
+        <a href="/homepage/" class="logo">
+            Mat's Mods
+        </a>
+
+        <nav>
+
+            <a href="/homepage/">
+                Home
+            </a>
+
+            <a href="/mods/">
+                Mods
+            </a>
+
+            <a href="https://github.com/Mattaann/matsmods-website" target="_blank" rel="noopener">
+        GitHub
+    </a>
+        </nav>
+
+    </div>
+
+</header>
+
+<main>
+
+    <section class="hero">
+
+        <div class="container hero-layout">
+
+            <div class="hero-left">
+
+                <img
+                    src="../assets/images/mats-mod-manager.png"
+                    alt="Mat's Mod Manager"
+                    class="hero-icon"
+                >
+
+                <p class="eyebrow">
+                    Fabric Mod for Minecraft
+                </p>
+
+                <h1>
+                    Mat's Mod Manager
+                </h1>
+
+                <p class="hero-text">
+
+                    Want an easier way to manage your Minecraft mods?
+                    With Mat's Mod Manager, you can quickly configure
+                    supported Mat's Mods and built-in quality-of-life
+                    features from one simple menu.
+
+                    <br><br>
+
+                    Choose exactly which features you want to use and
+                    customize your Minecraft experience your way.
+
+                    <br><br>
+
+                    Lightweight, organized and easy to use.
+
+                </p>
+
+                <div class="quick-guide">
+
+                    <h3>
+                        Built-In Features
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            No Creeper Explosions
+                        </li>
+
+                        <li>
+                            Tree Felling
+                        </li>
+
+                        <li>
+                            Enchantment Descriptions
+                        </li>
+
+                        <li>
+                            Block Identification Overlay
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="download-section">
+
+                    <label
+                        for="version-select"
+                        class="version-label"
+                    >
+                        Select Minecraft Version
+                    </label>
+
+                    <div class="version-download-row">
+
+                        <select
+                            id="version-select"
+                            class="version-select"
+                        >
+
+                            <option
+                                value="../downloads/mats-modmanager-26.2.jar"
+                                data-version="26.2"
+                            >
+                                Minecraft 26.2
+                            </option>
+
+                            <option
+                                value="../downloads/mats-modmanager-26.1.jar"
+                                data-version="26.1"
+                            >
+                                Minecraft 26.1
+                            </option>
+
+                        </select>
+
+                        <button
+                            type="button"
+                            id="version-download-button"
+                            class="button"
+                        >
+                            Download 26.2
+                        </button>
+
+                        <a
+                            href="/mods/"
+                            class="secondary-button"
+                        >
+                            Back to Mods
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-right">
+
+                <div class="preview-card">
+
+                    <div class="preview-header">
+
+                        <span class="preview-dot red"></span>
+
+                        <span class="preview-dot yellow"></span>
+
+                        <span class="preview-dot green"></span>
+
+                        <span class="preview-title eyebrow">
+                            Live Preview
+                        </span>
+
+                    </div>
+
+                    <img
+                        src="../assets/images/mats-modmanager-preview.gif"
+                        alt="Mat's Mod Manager Preview"
+                        class="hero-preview"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="features-section">
+
+        <div class="container">
+
+            <p class="eyebrow">
+                Features
+            </p>
+
+            <h2>
+                Why Choose Mat's Mod Manager?
+            </h2>
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+
+                    <h3>
+                        Centralized Management
+                    </h3>
+
+                    <p>
+                        Manage supported Mat's Mods and built-in
+                        features from one convenient menu.
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <h3>
+                        Built-In Quality of Life
+                    </h3>
+
+                    <p>
+                        Includes optional features such as Tree Felling,
+                        No Creeper Explosions, Enchantment Descriptions
+                        and more.
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <h3>
+                        Fully Customizable
+                    </h3>
+
+                    <p>
+                        Toggle every built-in feature individually to
+                        create your preferred Minecraft experience.
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <h3>
+                        Automatic Mod Detection
+                    </h3>
+
+                    <p>
+                        Automatically detects compatible Mat's Mods
+                        and keeps everything organized in one place.
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <h3>
+                        Lightweight
+                    </h3>
+
+                    <p>
+                        Designed for excellent performance with minimal
+                        impact on your game.
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <h3>
+                        Simple and Intuitive
+                    </h3>
+
+                    <p>
+                        A clean interface that makes configuring your
+                        mods and features easy.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <div class="container footer-content">
+
+        <div>
+
+            <a href="/homepage/" class="logo">
+                Mat's Mods
+            </a>
+
+            <p>
+                Lightweight Minecraft mods built for performance,
+                simplicity and a better gameplay experience.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+<div
+    class="download-modal"
+    id="download-modal"
+    aria-hidden="true"
+>
+
+    <div
+        class="download-modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="download-modal-title"
+    >
+
+        <button
+            type="button"
+            class="download-modal-close"
+            id="download-modal-close"
+            aria-label="Close download window"
+        >
+            ×
+        </button>
+
+        <p class="eyebrow">
+            Required Dependency
+        </p>
+
+        <h2 id="download-modal-title">
+            Fabric API Required
+        </h2>
+
+        <p class="download-modal-text">
+            Fabric API is required for Mat's Mod Manager to work
+            correctly. Download both files and place them in your
+            Minecraft <strong>mods</strong> folder.
+        </p>
+
+        <div class="download-modal-buttons">
+
+            <a
+                href="../downloads/mats-modmanager-26.2.jar"
+                id="modal-mod-download"
+                class="button"
+                download
+            >
+                Download Mat's Mod Manager 26.2
+            </a>
+
+            <a
+                href="https://modrinth.com/mod/fabric-api/versions"
+                class="secondary-button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Download Fabric API
+            </a>
+
+        </div>
+
+        <p class="download-modal-note">
+            Make sure you download the Fabric API version that matches
+            your selected Minecraft version.
+        </p>
+
+    </div>
+
+</div>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>
