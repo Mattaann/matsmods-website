@@ -233,4 +233,31 @@ supportForm?.addEventListener("submit", async (event) => {
         submitButton.disabled = false;
         submitButton.textContent = "Send Message";
     }
+    function changeGalleryImage(image) {
+    document.getElementById("galleryMain").src = image.src;
+}
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+
+function openGalleryImage(image){
+
+    modalImage.src = image.src;
+    modal.classList.add("active");
+
+}
+
+modal.addEventListener("click", function(e){
+
+    if(e.target === modal || e.target.classList.contains("close-modal")){
+        modal.classList.remove("active");
+    }
+
+});
+
+document.addEventListener("keydown", function(e){
+
+    if(e.key === "Escape"){
+        modal.classList.remove("active");
+    }
+
 });

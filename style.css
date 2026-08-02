@@ -365,15 +365,18 @@ nav a:hover {
     border-radius: 18px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
-
 .preview-card {
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
-    max-width: 700px;
+    padding: 20px;
+
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 18px;
-    background: var(--surface);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+    height: fit-content;
 }
 
 .preview-header {
@@ -1064,4 +1067,71 @@ body.modal-open {
     width: 100%;
     padding: 14px 0;
     text-align: center;
+}
+.gallery-main {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.gallery-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.gallery-thumbnails img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: .75;
+    transition: .2s;
+}
+
+.gallery-thumbnails img:hover {
+    opacity: 1;
+    transform: scale(1.03);
+}
+.image-modal {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,.9);
+
+    z-index: 9999;
+}
+
+.image-modal.active {
+    display: flex;
+}
+
+.modal-image {
+
+    max-width: 92%;
+    max-height: 90%;
+
+    border-radius: 14px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.6);
+}
+
+.close-modal{
+
+    position:absolute;
+    top:30px;
+    right:40px;
+
+    color:white;
+    font-size:42px;
+
+    cursor:pointer;
 }
