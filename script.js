@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* ========================================
+       DOWNLOAD SYSTEM
+    ======================================== */
+
     const versionSelect =
         document.getElementById("version-select");
 
@@ -15,249 +19,235 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalModDownload =
         document.getElementById("modal-mod-download");
 
+
     if (
-        !versionSelect ||
-        !downloadButton ||
-        !downloadModal ||
-        !modalCloseButton ||
-        !modalModDownload
+        versionSelect &&
+        downloadButton &&
+        downloadModal &&
+        modalCloseButton &&
+        modalModDownload
     ) {
-        return;
-    }
 
-    function updateDownloadVersion() {
+        function getModName() {
 
-    const selectedOption =
-        versionSelect.options[versionSelect.selectedIndex];
-
-    const downloadLink =
-        selectedOption.value;
-
-    const version =
-        selectedOption.dataset.version;
-
-    let modName = "Mat's Zoom";
-
-if (document.body.classList.contains("sethome-page")) {
-    modName = "Mat's Set Home";
-}
-
-if (document.body.classList.contains("notes-page")) {
-    modName = "Mat's Notes";
-}
-
-if (document.body.classList.contains("manager-page")) {
-    modName = "Mat's Mod Manager";
-}
-
-    downloadButton.textContent =
-        `Download ${version}`;
-
-    modalModDownload.href =
-        downloadLink;
-
-    modalModDownload.textContent =
-        `Download ${modName} ${version}`;
-}
-    function openDownloadModal() {
-
-        updateDownloadVersion();
-
-        downloadModal.classList.add("open");
-        downloadModal.setAttribute("aria-hidden", "false");
-
-        document.body.classList.add("modal-open");
-
-        modalCloseButton.focus();
-    }
-
-    function closeDownloadModal() {
-
-        downloadModal.classList.remove("open");
-        downloadModal.setAttribute("aria-hidden", "true");
-
-        document.body.classList.remove("modal-open");
-
-        downloadButton.focus();
-    }
-
-    versionSelect.addEventListener(
-        "change",
-        updateDownloadVersion
-    );
-
-    downloadButton.addEventListener(
-        "click",
-        openDownloadModal
-    );
-
-    modalCloseButton.addEventListener(
-        "click",
-        closeDownloadModal
-    );
-
-    downloadModal.addEventListener(
-        "click",
-        function (event) {
-
-            if (event.target === downloadModal) {
-                closeDownloadModal();
+            if (document.body.classList.contains("sethome-page")) {
+                return "Mat's Set Home";
             }
 
+            if (document.body.classList.contains("notes-page")) {
+                return "Mat's Notes";
+            }
+
+            if (document.body.classList.contains("manager-page")) {
+                return "Mat's Essentials";
+            }
+
+            if (document.body.classList.contains("zoom-page")) {
+                return "Mat's Zoom";
+            }
+
+            return "Mat's Mod";
         }
-    );
+
+
+        function updateDownloadVersion() {
+
+            const selectedOption =
+                versionSelect.options[
+                    versionSelect.selectedIndex
+                ];
+
+            const downloadLink =
+                selectedOption.value;
+
+            const version =
+                selectedOption.dataset.version;
+
+            const modName =
+                getModName();
+
+
+            downloadButton.textContent =
+                `Download ${version}`;
+
+            modalModDownload.href =
+                downloadLink;
+
+            modalModDownload.textContent =
+                `Download ${modName} ${version}`;
+        }
+
+
+        function openDownloadModal() {
+
+            updateDownloadVersion();
+
+            downloadModal.classList.add("open");
+
+            downloadModal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            document.body.classList.add(
+                "modal-open"
+            );
+
+            modalCloseButton.focus();
+        }
+
+
+        function closeDownloadModal() {
+
+            downloadModal.classList.remove("open");
+
+            downloadModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+        }
+
+
+        versionSelect.addEventListener(
+            "change",
+            updateDownloadVersion
+        );
+
+
+        downloadButton.addEventListener(
+            "click",
+            openDownloadModal
+        );
+
+
+        modalCloseButton.addEventListener(
+            "click",
+            closeDownloadModal
+        );
+
+
+        downloadModal.addEventListener(
+            "click",
+            function (event) {
+
+                if (event.target === downloadModal) {
+                    closeDownloadModal();
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    downloadModal.classList.contains("open")
+                ) {
+                    closeDownloadModal();
+                }
+
+            }
+        );
+
+
+        updateDownloadVersion();
+    }
+
+
+    /* ========================================
+       SIMPLE IMAGE GALLERY
+    ======================================== */
+
+    const simpleGalleryModal =
+        document.getElementById("simpleGalleryModal");
+
+    const simpleGalleryLargeImage =
+        document.getElementById(
+            "simpleGalleryLargeImage"
+        );
+
+
+    window.openSimpleGallery = function (image) {
+
+        if (
+            !simpleGalleryModal ||
+            !simpleGalleryLargeImage
+        ) {
+            return;
+        }
+
+        simpleGalleryLargeImage.src =
+            image.src;
+
+        simpleGalleryLargeImage.alt =
+            image.alt;
+
+        simpleGalleryModal.classList.add(
+            "open"
+        );
+
+        document.body.classList.add(
+            "gallery-open"
+        );
+    };
+
+
+    window.closeSimpleGallery = function (event) {
+
+        if (!simpleGalleryModal) {
+            return;
+        }
+
+        if (
+            event &&
+            event.target !== simpleGalleryModal &&
+            !event.target.classList.contains(
+                "simple-gallery-close"
+            )
+        ) {
+            return;
+        }
+
+        simpleGalleryModal.classList.remove(
+            "open"
+        );
+
+        document.body.classList.remove(
+            "gallery-open"
+        );
+    };
+
 
     document.addEventListener(
         "keydown",
         function (event) {
 
-            if (
-                event.key === "Escape" &&
-                downloadModal.classList.contains("open")
-            ) {
-                closeDownloadModal();
+            if (event.key === "Escape") {
+
+                if (
+                    simpleGalleryModal?.classList.contains(
+                        "open"
+                    )
+                ) {
+                    simpleGalleryModal.classList.remove(
+                        "open"
+                    );
+
+                    document.body.classList.remove(
+                        "gallery-open"
+                    );
+                }
+
             }
 
         }
     );
-
-    updateDownloadVersion();
-
-});
-const supportButton = document.getElementById("supportButton");
-const supportPanel = document.getElementById("supportPanel");
-const supportClose = document.getElementById("supportClose");
-const supportForm = document.getElementById("supportForm");
-const supportMessage = document.getElementById("supportMessage");
-const supportCharacterCount = document.getElementById(
-    "supportCharacterCount"
-);
-const supportFormStatus = document.getElementById(
-    "supportFormStatus"
-);
-
-function openSupportPanel() {
-    supportPanel.classList.add("open");
-    supportButton.setAttribute("aria-expanded", "true");
-}
-
-function closeSupportPanel() {
-    supportPanel.classList.remove("open");
-    supportButton.setAttribute("aria-expanded", "false");
-}
-
-supportButton?.addEventListener("click", () => {
-    const isOpen = supportPanel.classList.contains("open");
-
-    if (isOpen) {
-        closeSupportPanel();
-    } else {
-        openSupportPanel();
-    }
-});
-
-supportClose?.addEventListener("click", closeSupportPanel);
-
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        closeSupportPanel();
-    }
-});
-
-document.addEventListener("click", (event) => {
-    const clickedInsidePanel = supportPanel?.contains(event.target);
-    const clickedSupportButton = supportButton?.contains(event.target);
-
-    if (!clickedInsidePanel && !clickedSupportButton) {
-        closeSupportPanel();
-    }
-});
-
-supportMessage?.addEventListener("input", () => {
-    supportCharacterCount.textContent = supportMessage.value.length;
-});
-
-supportForm?.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const submitButton = supportForm.querySelector(
-        ".support-submit"
-    );
-
-    submitButton.disabled = true;
-    submitButton.textContent = "Sending...";
-
-    supportFormStatus.className = "support-form-status";
-    supportFormStatus.textContent = "";
-
-    try {
-        const response = await fetch(supportForm.action, {
-            method: "POST",
-            body: new FormData(supportForm),
-            headers: {
-                Accept: "application/json"
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error("The message could not be sent.");
-        }
-
-        supportForm.reset();
-        supportCharacterCount.textContent = "0";
-
-        supportFormStatus.textContent =
-            "Thank you! Your message has been sent.";
-
-        supportFormStatus.className =
-            "support-form-status visible success";
-
-        submitButton.textContent = "Message Sent";
-
-        window.setTimeout(() => {
-            closeSupportPanel();
-
-            submitButton.disabled = false;
-            submitButton.textContent = "Send Message";
-
-            supportFormStatus.className =
-                "support-form-status";
-        }, 2500);
-    } catch (error) {
-        supportFormStatus.textContent =
-            "Something went wrong. Please try again.";
-
-        supportFormStatus.className =
-            "support-form-status visible error";
-
-        submitButton.disabled = false;
-        submitButton.textContent = "Send Message";
-    }
-    function changeGalleryImage(image) {
-    document.getElementById("galleryMain").src = image.src;
-}
-const modal = document.getElementById("imageModal");
-const modalImage = document.getElementById("modalImage");
-
-function openGalleryImage(image){
-
-    modalImage.src = image.src;
-    modal.classList.add("active");
-
-}
-
-modal.addEventListener("click", function(e){
-
-    if(e.target === modal || e.target.classList.contains("close-modal")){
-        modal.classList.remove("active");
-    }
-
-});
-
-document.addEventListener("keydown", function(e){
-
-    if(e.key === "Escape"){
-        modal.classList.remove("active");
-    }
 
 });
