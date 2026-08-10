@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ========================================
-       DOWNLOAD SYSTEM
-    ======================================== */
 
     const versionSelect =
         document.getElementById("version-select");
@@ -160,11 +157,6 @@ document.addEventListener("DOMContentLoaded", function () {
         updateDownloadVersion();
     }
 
-
-    /* ========================================
-       SIMPLE IMAGE GALLERY
-    ======================================== */
-
     const simpleGalleryModal =
         document.getElementById("simpleGalleryModal");
 
@@ -251,3 +243,68 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
+const simpleGalleryModal =
+    document.getElementById("simpleGalleryModal");
+
+const simpleGalleryLargeImage =
+    document.getElementById("simpleGalleryLargeImage");
+
+const simpleGalleryClose =
+    document.getElementById("simpleGalleryClose");
+
+
+function openSimpleGallery(image) {
+
+    if (!simpleGalleryModal || !simpleGalleryLargeImage) {
+        return;
+    }
+
+    simpleGalleryLargeImage.src = image.src;
+    simpleGalleryLargeImage.alt = image.alt;
+
+    simpleGalleryModal.classList.add("open");
+
+    document.body.classList.add("gallery-open");
+}
+
+
+function closeSimpleGallery() {
+
+    if (!simpleGalleryModal) {
+        return;
+    }
+
+    simpleGalleryModal.classList.remove("open");
+
+    document.body.classList.remove("gallery-open");
+}
+
+
+simpleGalleryClose?.addEventListener(
+    "click",
+    closeSimpleGallery
+);
+
+
+simpleGalleryModal?.addEventListener(
+    "click",
+    function (event) {
+
+        if (event.target === simpleGalleryModal) {
+            closeSimpleGallery();
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Escape") {
+            closeSimpleGallery();
+        }
+
+    }
+);

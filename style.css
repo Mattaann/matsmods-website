@@ -1135,10 +1135,6 @@ body.modal-open {
 
     cursor:pointer;
 }
-/* ========================================
-   SOURCE CODE SECTION
-======================================== */
-
 .source-section {
     padding: 20px 0 100px;
 }
@@ -1283,4 +1279,88 @@ body.modal-open {
     .source-card {
         padding: 19px;
     }
+}
+.curseforge-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 18px;
+    min-height: 44px;
+
+    border: 1px solid #f16436;
+    border-radius: 8px;
+
+    background: #f16436;
+    color: #ffffff;
+
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.curseforge-button:hover {
+    background: #d9532b;
+    transform: translateY(-2px);
+}
+.version-download-row .button,
+.version-download-row .secondary-button,
+.version-download-row .curseforge-button {
+    height: 44px;
+    min-height: 44px;
+    padding: 0 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+.curseforge-icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 8px;
+
+    border: 1px solid #f16436;
+    border-radius: 8px;
+
+    background: #f16436;
+
+    flex: 0 0 44px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.curseforge-icon-button img {
+    width: 24px;
+    height: 24px;
+
+    object-fit: contain;
+}
+
+.curseforge-icon-button:hover {
+    transform: translateY(-2px);
+    background: #d9532b;
+
+    box-shadow: 0 8px 20px rgba(241, 100, 54, 0.22);
 }
