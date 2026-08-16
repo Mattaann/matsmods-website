@@ -12,15 +12,14 @@
 
     <meta
         name="description"
-        content="Mat's Notes - Create, manage and display useful notes directly inside Minecraft."
+        content="Mat's Set Home - Save locations and teleport back to them in Minecraft."
     >
 
-    <title>Mat's Notes | Mat's Mods</title>
+    <title>Mat's Set Home | Mat's Mods</title>
 
     <link rel="stylesheet" href="../style.css">
 
     <link rel="icon" type="image/png" href="/assets/icons/favicon.png?v=2">
-    
 
     <style>
 
@@ -46,7 +45,7 @@
 
 </head>
 
-<body class="notes-page">
+<body class="sethome-page">
 
 <header class="site-header">
 
@@ -56,12 +55,15 @@
             Mat's Mods
         </a>
 
-        <nav class="nav-links">
-                <a href="/"home>Home</a>
-                <a href="/mods/" class=>Minecraft Java Mods</a>
-                <a href="/mods/bedrock/" class="active">Minecraft Bedrock Mods</a>
-                <a href="https://github.com/Mattaann/" target="_blank" rel="noopener">
+        <nav>
+
+            <a href="/"home>Home</a>
+
+            <a href="/mods/">Mods</a>
+
+            <a href="https://github.com/Mattaann/" target="_blank" rel="noopener">
         GitHub
+    </div>
     </a>
 </nav>
 
@@ -76,38 +78,44 @@
             <div class="hero-left">
 
                 <img
-                    src="../assets/images/mats-notes.png"
-                    alt="Mat's Notes"
+                    src="/assets/images/bedrock/matssethomebedrock.png"
+                    alt="Mat's Set Home"
                     class="hero-icon"
                 >
 
                 <p class="eyebrow">
-                    Fabric Mod for Minecraft
+                    Bedrock Mod for Minecraft
                 </p>
 
                 <h1>
-                    Mat's Notes
+                    Mat's Set Home
                 </h1>
 
                 <p class="hero-text">
 
-                    Having trouble remembering what to bring or what
-                    to do? With Mat's Notes, you can quickly write
-                    everything down without leaving Minecraft.
+                    With Mat's Set Home, you can save important
+                    locations anywhere in your Minecraft world and
+                    quickly teleport back whenever you need to.
 
                     <br><br>
 
-                    Keep your notes visible while you play so you never
-                    forget coordinates, tasks, building ideas or
-                    important reminders.
+                    Create up to three homes, return to them using
+                    simple commands and manage everything through
+                    an easy in-game menu.
 
+                    
                     <br><br>
+                    <strong>  How to use:  </strong><br>
+                    /mats:set	Set home 1 at your current location.<br>
+/mats:set 1	Set or replace home 1.<br>
+/mats:set 2	Set or replace home 2.<br>
+/mats:set 3	Set or replace home 3.<br>
+/mats:home	Teleport to home 1.<br>
+/mats:home 1	Teleport to home 1.<br>
+/mats:home 2	Teleport to home 2.<br>
+/mats:home 3	Teleport to home 3.<br>
+/mats:menu	View coordinates and delete saved homes.<br>
 
-                    Customizable, lightweight and easy to use.
-                    <br><br>
-                    <strong>How to use:</strong>
-                    To write a note, press N.
-                    Type /matsnotes in chat and adjust settings.
 
                 </p>
 
@@ -128,17 +136,10 @@
                         >
 
                             <option
-                                value="../downloads/mats-notes-26.2.jar"
-                                data-version="26.2"
+                                value="/downloads/bedrock/matssethome-bedrock.mcpack"
+                                data-version="For Bedrock"
                             >
-                                Minecraft 26.2
-                            </option>
-
-                            <option
-                                value="../downloads/mats-notes-26.1.jar"
-                                data-version="26.1"
-                            >
-                                Minecraft 26.1
+                                Latest
                             </option>
 
                         </select>
@@ -148,10 +149,10 @@
                             id="version-download-button"
                             class="button"
                         >
-                            Download 26.2
+                            for Bedrock
                         </button>
-<a
-    href="https://www.curseforge.com/minecraft/mc-mods/mats-notes"
+                        <a
+    href="https://www.curseforge.com/minecraft-bedrock/addons/mats-set-home-for-bedrock/"
     class="curseforge-icon-button"
     target="_blank"
     rel="noopener noreferrer"
@@ -163,6 +164,7 @@
         alt=""
     >
 </a>
+
                         <a
                             href="/mods/"
                             class="secondary-button"
@@ -173,6 +175,55 @@
                     </div>
 
                 </div>
+
+                <div class="quick-guide">
+
+                    <h3>
+                        How to Install
+                    </h3>
+
+                    <ol>
+
+                        <li>
+                            Download Mats-Set-Home-Bedrock.mcpack.
+                        </li>
+
+                        <li>
+                            Open the downloaded file with Minecraft Bedrock Edition.
+                        </li>
+
+                        <li>
+                            Wait for Minecraft to confirm that the pack was imported.
+
+                        </li>
+
+                        <li>
+                           Create a new world or edit an existing one.
+
+                        </li>
+
+                        <li>
+                            Open Add-Ons → Behavior Packs → My Packs.
+                        </li>
+
+                        <li>
+                            Select Mat’s Set Home Mod for Bedrock.
+                        </li>
+                        <li>  
+                         Press Activate.
+                       </li>
+                       <li> 
+                        Start the world.
+                       </li>
+                       <li> 
+                        Enter /mats:set in chat to create your first home.
+
+                       </li>
+
+                    </ol>
+                    </a>
+
+            </div>
 </div>
 <div class="hero-right">
 
@@ -193,14 +244,14 @@
         <div class="simple-gallery">
 
             <img
-                src="../assets/screenshots/mats-notes.png"
-                alt="notes1"
+                src="/assets/images/bedrock/sethomebedrock1.png"
+                alt="sethome1"
                 onclick="openSimpleGallery(this)"
             >
 
             <img
-                src="../assets/screenshots/mats-notessettings.png"
-                alt="notes2"
+                src=""
+                alt="sethome2"
                 onclick="openSimpleGallery(this)"
             >
 
@@ -221,7 +272,7 @@
             </p>
 
             <h2>
-                Why Choose Mat's Notes?
+                Why Choose Mat's Set Home?
             </h2>
 
             <div class="feature-grid">
@@ -229,12 +280,12 @@
                 <div class="feature-card">
 
                     <h3>
-                        In-Game Notes
+                        Up to Three Homes
                     </h3>
 
                     <p>
-                        Create and edit notes without ever leaving
-                        Minecraft.
+                        Save up to three different locations in your
+                        world and move between them with ease.
                     </p>
 
                 </div>
@@ -242,12 +293,13 @@
                 <div class="feature-card">
 
                     <h3>
-                        Always Visible
+                        Simple Commands
                     </h3>
 
                     <p>
-                        Display your notes while exploring, building
-                        or mining.
+                        Use straightforward commands such as
+                        <strong>/sethome</strong> and
+                        <strong>/home</strong>.
                     </p>
 
                 </div>
@@ -255,12 +307,12 @@
                 <div class="feature-card">
 
                     <h3>
-                        Unlimited Notes
+                        Management Menu
                     </h3>
 
                     <p>
-                        Create as many notes as you need for every
-                        world and adventure.
+                        Open <strong>/matssethome</strong> to view,
+                        manage or remove all your saved homes.
                     </p>
 
                 </div>
@@ -268,12 +320,12 @@
                 <div class="feature-card">
 
                     <h3>
-                        Save Important Locations
+                        Exact Location Saving
                     </h3>
 
                     <p>
-                        Store coordinates, villages, Nether portals
-                        and anything worth remembering.
+                        Each home remembers the exact coordinates
+                        where it was created.
                     </p>
 
                 </div>
@@ -281,12 +333,12 @@
                 <div class="feature-card">
 
                     <h3>
-                        Fully Customizable
+                        Instant Teleportation
                     </h3>
 
                     <p>
-                        Adjust the interface and keybinds to fit your
-                        own playstyle.
+                        Return to your saved locations instantly
+                        without long travel times.
                     </p>
 
                 </div>
@@ -298,8 +350,8 @@
                     </h3>
 
                     <p>
-                        Designed for excellent performance with
-                        minimal impact on your game.
+                        Built to be simple, fast and have almost no
+                        performance impact.
                     </p>
 
                 </div>
@@ -318,7 +370,7 @@
 
         <div>
 
-            <a href="/"home class="logo">
+            <a href="/index.html"home class="logo">
                 Mat's Mods
             </a>
 
@@ -354,46 +406,22 @@
             ×
         </button>
 
-        <p class="eyebrow">
-            Required Dependency
-        </p>
-
-        <h2 id="download-modal-title">
-            Fabric API Required
-        </h2>
-
-        <p class="download-modal-text">
-            Fabric API is required for Mat's Notes to work correctly.
-            Download both files and place them in your Minecraft
-            <strong>mods</strong> folder.
-        </p>
-
         <div class="download-modal-buttons">
 
             <a
-                href="../downloads/mats-notes-26.2.jar"
+                href="/downloads/bedrock/matssethome-bedrock.mcpack"
                 id="modal-mod-download"
                 class="button"
                 download
             >
-                Download Mat's Notes 26.2
+                Download Mat's Set Home for Bedrock
             </a>
 
-            <a
-                href="https://modrinth.com/mod/fabric-api/versions"
-                class="secondary-button"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Download Fabric API
-            </a>
+            
 
         </div>
 
-        <p class="download-modal-note">
-            Make sure you download the Fabric API version that matches
-            your selected Minecraft version.
-        </p>
+        
 
     </div>
 
@@ -402,6 +430,7 @@
 <script src="../script.js"></script>
 
 </body>
+
 <section class="source-section">
 
     <div class="container source-container">
@@ -427,7 +456,7 @@
         <div class="source-links">
 
             <a
-                href="https://github.com/Mattaann/Mats-Notes"
+                href="https://github.com/Mattaann/mats-set-home-bedrock"
                 class="source-card"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -448,7 +477,7 @@
             </a>
 
             <a
-                href="https://github.com/Mattaann/Mats-Notes/issues"
+                href="https://github.com/Mattaann/mats-set-home-bedrock/issues"
                 class="source-card"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -469,7 +498,7 @@
             </a>
 
             <a
-                href="https://github.com/Mattaann/Mats-Notes/releases"
+                href="https://github.com/Mattaann/mats-set-home-bedrock/releases"
                 class="source-card"
                 target="_blank"
                 rel="noopener noreferrer"

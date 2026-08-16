@@ -661,7 +661,7 @@ body::after {
     );
 }
 .zoom-page::before{
-    background-image:url("../assets/backgrounds/background1.png");
+    background-image:url("/assets/backgrounds/background1.png");
 }
 
 .notes-page::before{
@@ -669,19 +669,15 @@ body::after {
 }
 
 .minimap-page::before{
-    background-image:url("../assets/backgrounds/background3.png");
+    background-image:url("/assets/backgrounds/background3.png");
 }
 
 .manager-page::before{
-    background-image:url("../assets/backgrounds/background4.png");
+    background-image:url("/assets/backgrounds/background4.png");
 }
 
 .sethome-page::before{
-    background-image:url("../assets/backgrounds/background5.png");
-}
-
-.kingdomquests::before{
-    background-image:url("../assets/backgrounds/background5.png");
+    background-image:url("/assets/backgrounds/background5.png");
 }
 .download-section {
     display: flex;
