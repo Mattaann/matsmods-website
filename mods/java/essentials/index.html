@@ -17,10 +17,13 @@
 
     <title>Mat's Mod Manager | Mat's Mods</title>
 
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/style.css">
 
-    <link rel="icon" type="image/png" href="/assets/icons/favicon.png?v=2">
-   
+    <link
+    rel="icon"
+    type="image/png"
+    href="/assets/images/icons/favicon.png"
+   > 
     <style>
 
         .hero-layout {
@@ -45,7 +48,12 @@
 
 </head>
 
-<body class="manager-page">
+<body
+    class="mod-page manager-page"
+    data-mod-name=""
+    style="--mod-background: url('/assets/backgrounds/background5.png');"
+>
+
 
 <header class="site-header">
 
@@ -57,8 +65,8 @@
 
         <nav class="nav-links">
                 <a href="/"home>Home</a>
-                <a href="/mods/" class=>Minecraft Java Mods</a>
-                <a href="/mods/bedrock/" class="active">Minecraft Bedrock Mods</a>
+                <a href="/mods/java/" class="active">Minecraft Java Mods</a>
+                <a href="/mods/bedrock/" class=>Minecraft Bedrock Mods</a>
                 <a href="https://github.com/Mattaann/" target="_blank" rel="noopener">
         GitHub
     </a>
@@ -77,7 +85,7 @@
             <div class="hero-left">
 
                 <img
-                    src="../assets/images/mats-mod-manager.png"
+                    src="/assets/images/mats-essentials.png"
                     alt="Mat's Mod Manager"
                     class="hero-icon"
                 >
@@ -87,28 +95,26 @@
                 </p>
 
                 <h1>
-                    Mat's Mod Manager
+                    Mat's Essentials Mod
                 </h1>
 
                 <p class="hero-text">
 
-                    Want an easier way to manage your Minecraft mods?
-                    With Mat's Mod Manager, you can quickly configure
-                    supported Mat's Mods and built-in quality-of-life
-                    features from one simple menu.
+                    View the current time, coordinates, crop growth, and targeted blocks directly on your screen without needing additional items.
 
                     <br><br>
 
-                    Choose exactly which features you want to use and
-                    customize your Minecraft experience your way.
+                    Enable practical features such as Tree Felling, Fast Leaf Decay, Right-Click Harvest, graves, protected farmland, and safer mob interactions. 
+                    Every feature can be enabled or disabled individually, allowing you to customize the mod for your preferred playstyle.
 
                     <br><br>
 
                     Lightweight, organized and easy to use.
                     <br><br>
                     <strong>How to use:</strong>
-                    Press Mod Manger in the top right corner. Toggle on or off the things you want.
+Type /matsessentials in the chat to open the settings menu.<br><br>
 
+<em>Note: All UI features are enabled by default, while all Game Mechanics features are disabled until you choose to enable them.</em>
                 </p>
 
                 <div class="download-section">
@@ -128,19 +134,13 @@
                         >
 
                             <option
-                                value="../downloads/mats-modmanager-26.2.jar"
+                                value="../downloads/mats-essentials-26.2.jar"
                                 data-version="26.2"
                             >
                                 Minecraft 26.2
                             </option>
 
-                            <option
-                                value="../downloads/mats-modmanager-26.1.jar"
-                                data-version="26.1"
-                            >
-                                Minecraft 26.1
-                            </option>
-
+                            
                         </select>
 
                         <button
@@ -151,7 +151,7 @@
                             Download 26.2
                         </button>
 <a
-    href="https://www.curseforge.com/minecraft/mc-mods/mats-mod-manager"
+    href="https://www.curseforge.com/minecraft/mc-mods/mats-essentials"
     class="curseforge-icon-button"
     target="_blank"
     rel="noopener noreferrer"
@@ -164,7 +164,7 @@
     >
 </a>
                         <a
-                            href="/mods/"
+                            href="/mods/java/"
                             class="secondary-button"
                         >
                             Back to Mods
@@ -193,19 +193,135 @@
         <div class="simple-gallery">
 
             <img
-                src="../assets/screenshots/mats-modmanager.png"
-                alt="modmanager"
+                src="/assets/screenshots/mats-essentials1.png"
+                alt="essentials mod screenshot"
                 onclick="openSimpleGallery(this)"
             >
-    
+    <img
+                src="/assets/screenshots/mats-essentials2.png"
+                alt="essentials mod screenshot"
+                onclick="openSimpleGallery(this)"
+            >
+            <img
+                src="/assets/screenshots/mats-essentials3.png"
+                alt="essentials mod screenshot"
+                onclick="openSimpleGallery(this)"
+            >
+
+
 
             </div>
+<div
+    class="simple-gallery-modal"
+    id="simpleGalleryModal"
+    aria-hidden="true"
+>
+    <button
+        type="button"
+        class="simple-gallery-close"
+        id="simpleGalleryClose"
+        aria-label="Close image"
+    >
+        ×
+    </button>
+
+    <img
+        id="simpleGalleryLargeImage"
+        src=""
+        alt=""
+    >
+</div>
+
+<script src="/script.js" defer></script>
 
         </div>
 
     </section>
 
-    
+    <section class="features-section">
+
+        <div class="container">
+
+            <p class="eyebrow">
+                Features
+            </p>
+
+            <h2>
+                Why Choose Mat's Essentials Mod?
+            </h2>
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+
+                    <h3>
+                        Clear and Useful HUD
+                    </h3>
+
+                    <p>
+                        View time, coordinates, crop growth, and targeted blocks without carrying additional items.
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <h3>
+                        Fully Configurable Features
+                    </h3>
+
+                    <p>
+                        Enable or disable every feature individually through the simple in-game settings menu.
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <h3>
+                        Improved Farming
+                    </h3>
+
+                    <p>
+                        Harvest and replant mature crops instantly while protecting farmland from accidental trampling.
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <h3>
+                        Safer World Interaction
+                    </h3>
+
+                    <p>
+                        Prevent Creepers and Endermen from damaging your builds without removing their normal combat danger.
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <h3>
+                        Convenient Survival Tools
+                    </h3>
+
+                    <p>
+                        Use features such as Tree Felling, Fast Leaf Decay, Keep Inventory, and Graves to simplify everyday survival.
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <h3>
+                        Simple and Intuitive
+                    </h3>
+
+                    <p>
+                        A clean interface that makes configuring your
+                        mods and features easy.
+                    </p>
 
                 </div>
 
@@ -268,7 +384,7 @@
         </h2>
 
         <p class="download-modal-text">
-            Fabric API is required for Mat's Mod Manager to work
+            Fabric API is required for Mat's Essentials Mod to work
             correctly. Download both files and place them in your
             Minecraft <strong>mods</strong> folder.
         </p>
@@ -276,12 +392,12 @@
         <div class="download-modal-buttons">
 
             <a
-                href="../downloads/mats-modmanager-26.2.jar"
+                href="/downloads/mats-essentials-26.2.jar"
                 id="modal-mod-download"
                 class="button"
                 download
             >
-                Download Mat's Mod Manager 26.2
+                Download Mat's Essentials Mod 26.2
             </a>
 
             <a
@@ -304,7 +420,7 @@
 
 </div>
 
-<script src="../script.js"></script>
+<script src="/script.js"></script>
 
 </body>
 <section class="source-section">

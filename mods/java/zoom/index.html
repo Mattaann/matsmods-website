@@ -12,18 +12,16 @@
 
     <meta
         name="description"
-        content="Mat's Damage Indicator - A lightweight client-side HUD mod that displays damage numbers."
+        content="Mat's Zoom - A lightweight and customizable zoom mod for Minecraft."
     >
 
-    <title>Mat's Damage Indicator | Mat's Mods</title>
+    <title>Mat's Zoom | Mat's Mods</title>
 
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/style.css">
+    
+    <link rel="icon" type="image/png" href="/assets/icons/favicon.png?v=2">
 
-    <link
-    rel="icon"
-    type="image/png"
-    href="../assets/icons/favicon.png"
-   > 
+
     <style>
 
         .hero-layout {
@@ -48,32 +46,30 @@
 
 </head>
 
-<body class="manager-page">
+<body
+    class="mod-page zoom"
+    data-mod-name=""
+    style="--mod-background: url('/assets/backgrounds/background2.png');"
+>
+
 
 <header class="site-header">
 
     <div class="container">
 
-        <a href="/"home class="logo">
+        <a href="/mods/java/" class="logo">
             Mat's Mods
         </a>
 
-        <nav>
-
-            <a href="/"home>
-                Home
-            </a>
-
-            <a href="/mods/">
-                Mods
-            </a>
-
-            <a href="https://github.com/Mattaann/" target="_blank" rel="noopener">
+        <nav class="nav-links">
+                <a href="/"home>Home</a>
+                <a href="/mods/java/" class="active">Minecraft Java Mods</a>
+                <a href="/mods/bedrock/" class=>Minecraft Bedrock Mods</a>
+                <a href="https://github.com/Mattaann/" target="_blank" rel="noopener">
         GitHub
     </a>
-        </nav>
-
-    </div>
+</nav>
+    
 
 </header>
 
@@ -86,8 +82,8 @@
             <div class="hero-left">
 
                 <img
-                    src="../assets/images/damage-indicator.png"
-                    alt="Mat's Damage Indicator"
+                    src="/assets/images/mats-zoom.png"
+                    alt="Mat's Zoom"
                     class="hero-icon"
                 >
 
@@ -96,32 +92,34 @@
                 </p>
 
                 <h1>
-                    Mat's Damage Indicator
+                    Mat's Zoom
                 </h1>
 
                 <p class="hero-text">
 
-                     Enhances combat by giving you clear visual feedback while keeping Minecraft's vanilla feel.
-Whenever you hit an entity, the damage dealt is displayed near your crosshair, making it easy to see how effective your attacks are. 
-
+                    Tired of not being able to see what is in the distance?
 
                     <br><br>
 
-                    Choose exactly which features you want to use and
-                    customize your Minecraft experience your way.
+                    With Mat's Zoom, you can smoothly zoom from
+                    <strong>1× all the way up to 100×</strong>
+                    without leaving Minecraft.
 
                     <br><br>
 
-                  Looking at a mob also shows a clean target HUD with its name, 3D model, and current health, helping you track enemies during combat.
-<br><br>
-<strong>How to use:</strong> Type /matsdmgind to open menu.
+                    Easily adjust your zoom level with a slider,
+                    customize your keybinds and choose your preferred
+                    mouse sensitivity while zoomed in.
+
+                    <br><br>
+
+                    Lightweight, highly customizable and built to feel
+                    like a natural part of vanilla Minecraft.
+                    <br><br>
+                   <strong>How to use:</strong>
+                    Zoom key is set to "Z" as standard, but you can always change it by typing /matszoom. 
+
                 </p>
-
-                <div class="quick-guide">
-
-                 
-
-                </div>
 
                 <div class="download-section">
 
@@ -140,12 +138,18 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
                         >
 
                             <option
-                                value="../downloads/mats-damage-indicator-26.2.jar"
+                                value="/downloads/mats-zoom-26.2.jar"
                                 data-version="26.2"
                             >
                                 Minecraft 26.2
                             </option>
 
+                            <option
+                                value="/downloads/mats-zoom-26.1.jar"
+                                data-version="26.1"
+                            >
+                                Minecraft 26.1
+                            </option>
 
                         </select>
 
@@ -156,9 +160,8 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
                         >
                             Download 26.2
                         </button>
-
-                        <a
-    href="https://www.curseforge.com/minecraft/mc-mods/mats-damage-indicator"
+<a
+    href="https://www.curseforge.com/minecraft/mc-mods/mats-zoom"
     class="curseforge-icon-button"
     target="_blank"
     rel="noopener noreferrer"
@@ -170,16 +173,14 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
         alt=""
     >
 </a>
-
                         <a
-                            href="/mods/"
+                            href="/mods/java/"
                             class="secondary-button"
                         >
                             Back to Mods
                         </a>
 
                     </div>
-
 </div>
 </div>
 <div class="hero-right">
@@ -201,24 +202,44 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
         <div class="simple-gallery">
 
             <img
-                src="../assets/screenshots/matsdmgind-hitting.png"
-                alt="Damage numbers during combat"
+                src="/assets/screenshots/mats-zoom.png"
+                alt="Zoom"
                 onclick="openSimpleGallery(this)"
             >
 
             <img
-                src="../assets/screenshots/matsdmgind-menu.png"
-                alt="Damage Indicator settings menu"
+                src="/assets/screenshots/mats-zoomsettings.png"
+                alt="Zoomsettings"
                 onclick="openSimpleGallery(this)"
             >
 
+    
+
+            </div>
+<div
+    class="simple-gallery-modal"
+    id="simpleGalleryModal"
+    aria-hidden="true"
+>
+    <button
+        type="button"
+        class="simple-gallery-close"
+        id="simpleGalleryClose"
+        aria-label="Close image"
+    >
+        ×
+    </button>
+
+    <img
+        id="simpleGalleryLargeImage"
+        src=""
+        alt=""
+    >
+</div>
+
+<script src="/script.js" defer></script>
+
         </div>
-
-    </div>
-
-</div>
-
-</div>
 
     </section>
 
@@ -231,7 +252,7 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
             </p>
 
             <h2>
-                Why Choose Mat's Damage Indicator?
+                Why Choose Mat's Zoom?
             </h2>
 
             <div class="feature-grid">
@@ -239,11 +260,11 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
                 <div class="feature-card">
 
                     <h3>
-                        Damage Numbers
+                        Smooth Zoom
                     </h3>
 
                     <p>
-                        See exactly how much damage each attack deals directly near your crosshair.
+                        Beautiful zoom animation with adjustable speed.
                     </p>
 
                 </div>
@@ -251,11 +272,11 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
                 <div class="feature-card">
 
                     <h3>
-                       Target HUD
+                        Adjustable Magnification
                     </h3>
 
                     <p>
-                        Displays the target's name, 3D model, and current health while you look at it.
+                        Zoom from 1× up to 100× using an easy slider.
                     </p>
 
                 </div>
@@ -263,11 +284,11 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
                 <div class="feature-card">
 
                     <h3>
-                        Custom HUD Position
+                        Custom Keybind
                     </h3>
 
                     <p>
-                        Choose from six different HUD layouts using the /matsdmgind command.
+                        Choose any key you want to activate zoom.
                     </p>
 
                 </div>
@@ -275,11 +296,11 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
                 <div class="feature-card">
 
                     <h3>
-                        Fully Customizable
+                        Scroll Zoom
                     </h3>
 
                     <p>
-                        Adjust damage text color, size, display duration, and animation style.
+                        Change zoom level instantly using your mouse wheel.
                     </p>
 
                 </div>
@@ -291,8 +312,7 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
                     </h3>
 
                     <p>
-                        Designed for excellent performance with minimal
-                        impact on your game.
+                        Designed to have almost no performance impact.
                     </p>
 
                 </div>
@@ -300,11 +320,11 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
                 <div class="feature-card">
 
                     <h3>
-                        Simple and Intuitive
+                        Vanilla Friendly
                     </h3>
 
                     <p>
-                        A clean interface with no server installation required; the mod works entirely on the client.
+                        Looks and feels like an official Minecraft feature.
                     </p>
 
                 </div>
@@ -368,20 +388,20 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
         </h2>
 
         <p class="download-modal-text">
-            Fabric API is required for Mat's Damage Indicator to work
-            correctly. Download both files and place them in your
-            Minecraft <strong>mods</strong> folder.
+            Fabric API is required for Mat's Zoom to work correctly.
+            Download both files and place them in your Minecraft
+            <strong>mods</strong> folder.
         </p>
 
         <div class="download-modal-buttons">
 
             <a
-                href="../downloads/mats-damage-indicator-26.2.jar"
+                href="/downloads/mats-zoom-26.2.jar"
                 id="modal-mod-download"
                 class="button"
                 download
             >
-                Download Mat's Damage Indicator 26.2
+                Download Mat's Zoom 26.2
             </a>
 
             <a
@@ -404,10 +424,9 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
 
 </div>
 
-<script src="../script.js"></script>
+<script src="/script.js"></script>
 
 </body>
-
 <section class="source-section">
 
     <div class="container source-container">
@@ -433,7 +452,7 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
         <div class="source-links">
 
             <a
-                href="https://github.com/Mattaann/Mats-Damage-Indicator"
+                href="https://github.com/Mattaann/Mats-Zoom"
                 class="source-card"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -454,7 +473,7 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
             </a>
 
             <a
-                href="https://github.com/Mattaann/Mats-Damage-Indicator/issues"
+                href="https://github.com/Mattaann/Mats-Zoom/issues"
                 class="source-card"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -475,7 +494,7 @@ Whenever you hit an entity, the damage dealt is displayed near your crosshair, m
             </a>
 
             <a
-                href="https://github.com/Mattaann/Mats-Damage-Indicator/releases"
+                href="https://github.com/Mattaann/Mats-Zoom/releases"
                 class="source-card"
                 target="_blank"
                 rel="noopener noreferrer"

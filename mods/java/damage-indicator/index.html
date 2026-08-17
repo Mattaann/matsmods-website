@@ -12,16 +12,18 @@
 
     <meta
         name="description"
-        content="Mat's Zoom - A lightweight and customizable zoom mod for Minecraft."
+        content="Mat's Damage Indicator - A lightweight client-side HUD mod that displays damage numbers."
     >
 
-    <title>Mat's Zoom | Mat's Mods</title>
+    <title>Mat's Damage Indicator | Mat's Mods</title>
 
-    <link rel="stylesheet" href="../style.css">
-    
-    <link rel="icon" type="image/png" href="/assets/icons/favicon.png?v=2">
+    <link rel="stylesheet" href="/style.css">
 
-
+    <link
+    rel="icon"
+    type="image/png"
+    href="/assets/icons/favicon.png"
+   > 
     <style>
 
         .hero-layout {
@@ -46,25 +48,30 @@
 
 </head>
 
-<body class="zoom-page">
+<body
+    class="mod-page damage-indicator"
+    data-mod-name=""
+    style="--mod-background: url('/assets/backgrounds/background1.png');"
+>
 
 <header class="site-header">
 
     <div class="container">
 
-        <a href="/mods/" class="logo">
+        <a href="/"home class="logo">
             Mat's Mods
         </a>
 
         <nav class="nav-links">
                 <a href="/"home>Home</a>
-                <a href="/mods/" class=>Minecraft Java Mods</a>
-                <a href="/mods/bedrock/" class="active">Minecraft Bedrock Mods</a>
+                <a href="/mods/java/" class="active">Minecraft Java Mods</a>
+                <a href="/mods/bedrock/" class=>Minecraft Bedrock Mods</a>
                 <a href="https://github.com/Mattaann/" target="_blank" rel="noopener">
         GitHub
     </a>
-</nav>
-    
+        </nav>
+
+    </div>
 
 </header>
 
@@ -77,8 +84,8 @@
             <div class="hero-left">
 
                 <img
-                    src="../assets/images/mats-zoom.png"
-                    alt="Mat's Zoom"
+                    src="/assets/images/damage-indicator.png"
+                    alt="Mat's Damage Indicator"
                     class="hero-icon"
                 >
 
@@ -87,34 +94,32 @@
                 </p>
 
                 <h1>
-                    Mat's Zoom
+                    Mat's Damage Indicator
                 </h1>
 
                 <p class="hero-text">
 
-                    Tired of not being able to see what is in the distance?
+                     Enhances combat by giving you clear visual feedback while keeping Minecraft's vanilla feel.
+Whenever you hit an entity, the damage dealt is displayed near your crosshair, making it easy to see how effective your attacks are. 
+
 
                     <br><br>
 
-                    With Mat's Zoom, you can smoothly zoom from
-                    <strong>1× all the way up to 100×</strong>
-                    without leaving Minecraft.
+                    Choose exactly which features you want to use and
+                    customize your Minecraft experience your way.
 
                     <br><br>
 
-                    Easily adjust your zoom level with a slider,
-                    customize your keybinds and choose your preferred
-                    mouse sensitivity while zoomed in.
-
-                    <br><br>
-
-                    Lightweight, highly customizable and built to feel
-                    like a natural part of vanilla Minecraft.
-                    <br><br>
-                   <strong>How to use:</strong>
-                    Zoom key is set to "Z" as standard, but you can always change it by typing /matszoom. 
-
+                  Looking at a mob also shows a clean target HUD with its name, 3D model, and current health, helping you track enemies during combat.
+<br><br>
+<strong>How to use:</strong> Type /matsdmgind to open menu.
                 </p>
+
+                <div class="quick-guide">
+
+                 
+
+                </div>
 
                 <div class="download-section">
 
@@ -133,18 +138,12 @@
                         >
 
                             <option
-                                value="../downloads/mats-zoom-26.2.jar"
+                                value="/downloads/mats-damage-indicator-26.2.jar"
                                 data-version="26.2"
                             >
                                 Minecraft 26.2
                             </option>
 
-                            <option
-                                value="../downloads/mats-zoom-26.1.jar"
-                                data-version="26.1"
-                            >
-                                Minecraft 26.1
-                            </option>
 
                         </select>
 
@@ -155,8 +154,9 @@
                         >
                             Download 26.2
                         </button>
-<a
-    href="https://www.curseforge.com/minecraft/mc-mods/mats-zoom"
+
+                        <a
+    href="https://www.curseforge.com/minecraft/mc-mods/mats-damage-indicator"
     class="curseforge-icon-button"
     target="_blank"
     rel="noopener noreferrer"
@@ -168,14 +168,16 @@
         alt=""
     >
 </a>
+
                         <a
-                            href="/mods/"
+                            href="/mods/java/"
                             class="secondary-button"
                         >
                             Back to Mods
                         </a>
 
                     </div>
+
 </div>
 </div>
 <div class="hero-right">
@@ -197,22 +199,49 @@
         <div class="simple-gallery">
 
             <img
-                src="../assets/screenshots/mats-zoom.png"
-                alt="Zoom"
+                src="/assets/screenshots/matsdmgind-hitting.png"
+                alt="Damage numbers during combat"
                 onclick="openSimpleGallery(this)"
             >
 
             <img
-                src="../assets/screenshots/mats-zoomsettings.png"
-                alt="Zoomsettings"
+                src="/assets/screenshots/matsdmgind-menu.png"
+                alt="Damage Indicator settings menu"
                 onclick="openSimpleGallery(this)"
             >
 
-    
-
-            </div>
-
         </div>
+        <script src="/script.js" defer></script>
+
+<div
+    class="simple-gallery-modal"
+    id="simpleGalleryModal"
+    aria-hidden="true"
+>
+    <button
+        type="button"
+        class="simple-gallery-close"
+        id="simpleGalleryClose"
+        aria-label="Close image"
+    >
+        ×
+    </button>
+
+    <img
+        id="simpleGalleryLargeImage"
+        src=""
+        alt=""
+    >
+</div>
+
+<script src="/script.js" defer></script>
+
+
+    </div>
+
+</div>
+
+</div>
 
     </section>
 
@@ -225,7 +254,7 @@
             </p>
 
             <h2>
-                Why Choose Mat's Zoom?
+                Why Choose Mat's Damage Indicator?
             </h2>
 
             <div class="feature-grid">
@@ -233,11 +262,11 @@
                 <div class="feature-card">
 
                     <h3>
-                        Smooth Zoom
+                        Damage Numbers
                     </h3>
 
                     <p>
-                        Beautiful zoom animation with adjustable speed.
+                        See exactly how much damage each attack deals directly near your crosshair.
                     </p>
 
                 </div>
@@ -245,11 +274,11 @@
                 <div class="feature-card">
 
                     <h3>
-                        Adjustable Magnification
+                       Target HUD
                     </h3>
 
                     <p>
-                        Zoom from 1× up to 100× using an easy slider.
+                        Displays the target's name, 3D model, and current health while you look at it.
                     </p>
 
                 </div>
@@ -257,11 +286,11 @@
                 <div class="feature-card">
 
                     <h3>
-                        Custom Keybind
+                        Custom HUD Position
                     </h3>
 
                     <p>
-                        Choose any key you want to activate zoom.
+                        Choose from six different HUD layouts using the /matsdmgind command.
                     </p>
 
                 </div>
@@ -269,11 +298,11 @@
                 <div class="feature-card">
 
                     <h3>
-                        Scroll Zoom
+                        Fully Customizable
                     </h3>
 
                     <p>
-                        Change zoom level instantly using your mouse wheel.
+                        Adjust damage text color, size, display duration, and animation style.
                     </p>
 
                 </div>
@@ -285,7 +314,8 @@
                     </h3>
 
                     <p>
-                        Designed to have almost no performance impact.
+                        Designed for excellent performance with minimal
+                        impact on your game.
                     </p>
 
                 </div>
@@ -293,11 +323,11 @@
                 <div class="feature-card">
 
                     <h3>
-                        Vanilla Friendly
+                        Simple and Intuitive
                     </h3>
 
                     <p>
-                        Looks and feels like an official Minecraft feature.
+                        A clean interface with no server installation required; the mod works entirely on the client.
                     </p>
 
                 </div>
@@ -361,20 +391,20 @@
         </h2>
 
         <p class="download-modal-text">
-            Fabric API is required for Mat's Zoom to work correctly.
-            Download both files and place them in your Minecraft
-            <strong>mods</strong> folder.
+            Fabric API is required for Mat's Damage Indicator to work
+            correctly. Download both files and place them in your
+            Minecraft <strong>mods</strong> folder.
         </p>
 
         <div class="download-modal-buttons">
 
             <a
-                href="../downloads/mats-zoom-26.2.jar"
+                href="/downloads/mats-damage-indicator-26.2.jar"
                 id="modal-mod-download"
                 class="button"
                 download
             >
-                Download Mat's Zoom 26.2
+                Download Mat's Damage Indicator 26.2
             </a>
 
             <a
@@ -397,9 +427,10 @@
 
 </div>
 
-<script src="../script.js"></script>
+<script src="/script.js"></script>
 
 </body>
+
 <section class="source-section">
 
     <div class="container source-container">
@@ -425,7 +456,7 @@
         <div class="source-links">
 
             <a
-                href="https://github.com/Mattaann/Mats-Zoom"
+                href="https://github.com/Mattaann/Mats-Damage-Indicator"
                 class="source-card"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -446,7 +477,7 @@
             </a>
 
             <a
-                href="https://github.com/Mattaann/Mats-Zoom/issues"
+                href="https://github.com/Mattaann/Mats-Damage-Indicator/issues"
                 class="source-card"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -467,7 +498,7 @@
             </a>
 
             <a
-                href="https://github.com/Mattaann/Mats-Zoom/releases"
+                href="https://github.com/Mattaann/Mats-Damage-Indicator/releases"
                 class="source-card"
                 target="_blank"
                 rel="noopener noreferrer"

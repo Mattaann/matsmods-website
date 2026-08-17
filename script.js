@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-
     const versionSelect =
         document.getElementById("version-select");
 
@@ -17,225 +16,426 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("modal-mod-download");
 
 
-    if (
-        versionSelect &&
-        downloadButton &&
-        downloadModal &&
-        modalCloseButton &&
-        modalModDownload
-    ) {
+    const modName =
+        document.body.dataset.modName || "Mat's Mod";
 
-        function getModName() {
 
-            if (document.body.classList.contains("sethome-page")) {
-                return "Mat's Set Home";
-            }
+    function getSelectedVersion() {
 
-            if (document.body.classList.contains("notes-page")) {
-                return "Mat's Notes";
-            }
+        if (!versionSelect) {
+            return null;
+        }
 
-            if (document.body.classList.contains("manager-page")) {
-                return "Mat's Essentials";
-            }
+        const selectedOption =
+            versionSelect.options[
+                versionSelect.selectedIndex
+            ];
 
-            if (document.body.classList.contains("zoom-page")) {
-                return "Mat's Zoom";
-            }
+        if (!selectedOption) {
+            return null;
+        }
 
-            return "Mat's Mod";
+        return {
+            version:
+                selectedOption.dataset.version || "",
+
+            download:
+                selectedOption.value || ""
+        };
+    }
+
+
+    function updateDownloadVersion() {
+
+        const selected =
+            getSelectedVersion();
+
+        if (!selected) {
+            return;
         }
 
 
-        function updateDownloadVersion() {
+        if (downloadButton) {
 
-            const selectedOption =
-                versionSelect.options[
-                    versionSelect.selectedIndex
-                ];
+            if (selected.version) {
+                downloadButton.textContent =
+                    `Download ${selected.version}`;
+            } else {
+                downloadButton.textContent =
+                    "Download";
+            }
 
-            const downloadLink =
-                selectedOption.value;
-
-            const version =
-                selectedOption.dataset.version;
-
-            const modName =
-                getModName();
+        }
 
 
-            downloadButton.textContent =
-                `Download ${version}`;
+        if (modalModDownload) {
 
             modalModDownload.href =
-                downloadLink;
+                selected.download;
 
-            modalModDownload.textContent =
-                `Download ${modName} ${version}`;
+            if (selected.version) {
+
+                modalModDownload.textContent =
+                    `Download ${modName} ${selected.version}`;
+
+            } else {
+
+                modalModDownload.textContent =
+                    `Download ${modName}`;
+
+            }
+
+        }
+
+    }
+
+
+    function startDirectDownload(downloadUrl) {
+
+        if (!downloadUrl) {
+            return;
+        }
+
+        const link =
+            document.createElement("a");
+
+        link.href =
+            downloadUrl;
+
+        link.download = "";
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        link.remove();
+    }
+
+
+    function openDownloadModal() {
+
+        const selected =
+            getSelectedVersion();
+
+        if (!selected) {
+            return;
         }
 
 
-        function openDownloadModal() {
+        updateDownloadVersion();
 
-            updateDownloadVersion();
+        if (!downloadModal) {
 
-            downloadModal.classList.add("open");
-
-            downloadModal.setAttribute(
-                "aria-hidden",
-                "false"
+            startDirectDownload(
+                selected.download
             );
 
-            document.body.classList.add(
-                "modal-open"
-            );
+            return;
+        }
 
+
+        downloadModal.classList.add(
+            "open"
+        );
+
+        downloadModal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.classList.add(
+            "modal-open"
+        );
+
+
+        if (modalCloseButton) {
             modalCloseButton.focus();
         }
 
+    }
 
-        function closeDownloadModal() {
 
-            downloadModal.classList.remove("open");
+    function closeDownloadModal() {
 
-            downloadModal.setAttribute(
-                "aria-hidden",
-                "true"
-            );
-
-            document.body.classList.remove(
-                "modal-open"
-            );
+        if (!downloadModal) {
+            return;
         }
 
+
+        downloadModal.classList.remove(
+            "open"
+        );
+
+        downloadModal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.classList.remove(
+            "modal-open"
+        );
+
+    }
+
+
+    if (versionSelect) {
 
         versionSelect.addEventListener(
             "change",
             updateDownloadVersion
         );
 
+    }
+
+
+    if (downloadButton) {
 
         downloadButton.addEventListener(
             "click",
             openDownloadModal
         );
 
+    }
+
+
+    if (modalCloseButton) {
 
         modalCloseButton.addEventListener(
             "click",
             closeDownloadModal
         );
 
+    }
+
+
+    if (downloadModal) {
 
         downloadModal.addEventListener(
             "click",
             function (event) {
 
-                if (event.target === downloadModal) {
-                    closeDownloadModal();
-                }
-
-            }
-        );
-
-
-        document.addEventListener(
-            "keydown",
-            function (event) {
-
                 if (
-                    event.key === "Escape" &&
-                    downloadModal.classList.contains("open")
+                    event.target ===
+                    downloadModal
                 ) {
+
                     closeDownloadModal();
+
                 }
 
             }
         );
 
-
-        updateDownloadVersion();
     }
 
-    const simpleGalleryModal =
-        document.getElementById("simpleGalleryModal");
 
-    const simpleGalleryLargeImage =
+    updateDownloadVersion();
+
+    const galleryImages =
+        document.querySelectorAll(
+            ".simple-gallery img"
+        );
+
+
+    const galleryModal =
+        document.getElementById(
+            "simpleGalleryModal"
+        );
+
+
+    const galleryLargeImage =
         document.getElementById(
             "simpleGalleryLargeImage"
         );
 
 
-    window.openSimpleGallery = function (image) {
+    const galleryCloseButton =
+        document.getElementById(
+            "simpleGalleryClose"
+        );
+
+
+    function openGallery(image) {
 
         if (
-            !simpleGalleryModal ||
-            !simpleGalleryLargeImage
+            !galleryModal ||
+            !galleryLargeImage ||
+            !image
         ) {
             return;
         }
 
-        simpleGalleryLargeImage.src =
+
+        galleryLargeImage.src =
             image.src;
 
-        simpleGalleryLargeImage.alt =
-            image.alt;
+        galleryLargeImage.alt =
+            image.alt || "";
 
-        simpleGalleryModal.classList.add(
+
+        galleryModal.classList.add(
             "open"
         );
+
+        galleryModal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
 
         document.body.classList.add(
             "gallery-open"
         );
-    };
+
+    }
 
 
-    window.closeSimpleGallery = function (event) {
+    function closeGallery() {
 
-        if (!simpleGalleryModal) {
+        if (!galleryModal) {
             return;
         }
 
-        if (
-            event &&
-            event.target !== simpleGalleryModal &&
-            !event.target.classList.contains(
-                "simple-gallery-close"
-            )
-        ) {
-            return;
-        }
 
-        simpleGalleryModal.classList.remove(
+        galleryModal.classList.remove(
             "open"
         );
+
+        galleryModal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
 
         document.body.classList.remove(
             "gallery-open"
         );
-    };
 
+    }
+
+
+    galleryImages.forEach(
+        function (image) {
+
+            image.addEventListener(
+                "click",
+                function () {
+
+                    openGallery(image);
+
+                }
+            );
+
+        }
+    );
+
+
+    if (galleryCloseButton) {
+
+        galleryCloseButton.addEventListener(
+            "click",
+            closeGallery
+        );
+
+    }
+
+
+    if (galleryModal) {
+
+        galleryModal.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    event.target ===
+                    galleryModal
+                ) {
+
+                    closeGallery();
+
+                }
+
+            }
+        );
+
+    }
 
     document.addEventListener(
         "keydown",
         function (event) {
 
-            if (event.key === "Escape") {
+            if (event.key !== "Escape") {
+                return;
+            }
+
+
+            if (
+                downloadModal &&
+                downloadModal.classList.contains(
+                    "open"
+                )
+            ) {
+
+                closeDownloadModal();
+
+            }
+
+
+            if (
+                galleryModal &&
+                galleryModal.classList.contains(
+                    "open"
+                )
+            ) {
+
+                closeGallery();
+
+            }
+
+        }
+    );
+
+    const navigationLinks =
+        document.querySelectorAll(
+            ".site-header nav a"
+        );
+
+
+    navigationLinks.forEach(
+        function (link) {
+
+            try {
+
+                const linkUrl =
+                    new URL(
+                        link.href,
+                        window.location.origin
+                    );
+
+
+                const currentPath =
+                    window.location.pathname
+                        .replace(/\/+$/, "");
+
+
+                const linkPath =
+                    linkUrl.pathname
+                        .replace(/\/+$/, "");
+
 
                 if (
-                    simpleGalleryModal?.classList.contains(
-                        "open"
-                    )
+                    linkUrl.origin ===
+                    window.location.origin &&
+                    currentPath === linkPath
                 ) {
-                    simpleGalleryModal.classList.remove(
-                        "open"
+
+                    link.classList.add(
+                        "active"
                     );
 
-                    document.body.classList.remove(
-                        "gallery-open"
-                    );
                 }
+
+            } catch (error) {
 
             }
 
@@ -243,68 +443,3 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
-const simpleGalleryModal =
-    document.getElementById("simpleGalleryModal");
-
-const simpleGalleryLargeImage =
-    document.getElementById("simpleGalleryLargeImage");
-
-const simpleGalleryClose =
-    document.getElementById("simpleGalleryClose");
-
-
-function openSimpleGallery(image) {
-
-    if (!simpleGalleryModal || !simpleGalleryLargeImage) {
-        return;
-    }
-
-    simpleGalleryLargeImage.src = image.src;
-    simpleGalleryLargeImage.alt = image.alt;
-
-    simpleGalleryModal.classList.add("open");
-
-    document.body.classList.add("gallery-open");
-}
-
-
-function closeSimpleGallery() {
-
-    if (!simpleGalleryModal) {
-        return;
-    }
-
-    simpleGalleryModal.classList.remove("open");
-
-    document.body.classList.remove("gallery-open");
-}
-
-
-simpleGalleryClose?.addEventListener(
-    "click",
-    closeSimpleGallery
-);
-
-
-simpleGalleryModal?.addEventListener(
-    "click",
-    function (event) {
-
-        if (event.target === simpleGalleryModal) {
-            closeSimpleGallery();
-        }
-
-    }
-);
-
-
-document.addEventListener(
-    "keydown",
-    function (event) {
-
-        if (event.key === "Escape") {
-            closeSimpleGallery();
-        }
-
-    }
-);
