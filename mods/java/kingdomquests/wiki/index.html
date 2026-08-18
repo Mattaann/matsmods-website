@@ -1,0 +1,2521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Official Kingdom Quests Wiki for Mat's Mods. Learn about the story, quests, progression, creatures, systems and commands."
+    >
+
+    <title>Kingdom Quests Wiki | Mat's Mods</title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="/assets/icons/favicon.png"
+    >
+
+    <script
+        src="/script.js"
+        defer
+    ></script>
+
+
+    <style>
+
+        .wiki-page {
+            padding: 70px 0 110px;
+        }
+
+
+        .wiki-header {
+            max-width: 900px;
+
+            margin-bottom: 45px;
+        }
+
+
+        .wiki-header h1 {
+            margin: 8px 0 16px;
+
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            line-height: 1;
+        }
+
+
+        .wiki-header > p:last-child {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+        .wiki-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(230px, 290px)
+                minmax(0, 1fr);
+
+            gap: 34px;
+
+            align-items: start;
+        }
+        .wiki-sidebar {
+            position: sticky;
+            top: 100px;
+
+            max-height: calc(100vh - 125px);
+
+            overflow-y: auto;
+
+            padding: 18px;
+
+            border: 1px solid var(--border);
+            border-radius: 16px;
+
+            background: rgba(24, 27, 33, 0.95);
+
+            scrollbar-width: thin;
+        }
+
+
+        .wiki-sidebar-title {
+            margin: 0 0 14px;
+
+            color: var(--accent);
+
+            font-size: 0.75rem;
+            font-weight: 800;
+
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+
+        .wiki-nav {
+            display: flex;
+            flex-direction: column;
+
+            gap: 4px;
+        }
+
+
+        .wiki-nav a {
+            display: block;
+
+            padding: 9px 11px;
+
+            border-radius: 8px;
+
+            color: var(--muted);
+
+            font-size: 0.88rem;
+            font-weight: 600;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease;
+        }
+
+
+        .wiki-nav a:hover {
+            background: rgba(120, 200, 80, 0.08);
+
+            color: var(--text);
+        }
+
+
+        .wiki-nav-divider {
+            height: 1px;
+
+            margin: 10px 0;
+
+            background: var(--border);
+        }
+
+
+        .wiki-nav-heading {
+            margin: 8px 10px 4px;
+
+            color: var(--accent);
+
+            font-size: 0.68rem;
+            font-weight: 800;
+
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .wiki-content {
+            min-width: 0;
+        }
+
+
+        .wiki-section {
+            scroll-margin-top: 105px;
+
+            margin-bottom: 26px;
+            padding: 30px;
+
+            border: 1px solid var(--border);
+            border-radius: 16px;
+
+            background: rgba(24, 27, 33, 0.93);
+        }
+
+
+        .wiki-section h2 {
+            margin: 0 0 14px;
+
+            font-size: clamp(1.65rem, 4vw, 2.2rem);
+        }
+
+
+        .wiki-section h3 {
+            margin: 30px 0 12px;
+
+            font-size: 1.3rem;
+        }
+
+
+        .wiki-section h4 {
+            margin: 22px 0 8px;
+
+            font-size: 1.05rem;
+        }
+
+
+        .wiki-section p {
+            margin: 0 0 14px;
+
+            color: var(--muted);
+
+            line-height: 1.75;
+        }
+
+
+        .wiki-section p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .wiki-section ul,
+        .wiki-section ol {
+            margin: 14px 0 18px;
+
+            padding-left: 24px;
+
+            color: var(--muted);
+        }
+
+
+        .wiki-section li {
+            margin-bottom: 8px;
+
+            line-height: 1.65;
+        }
+
+
+        .wiki-section strong {
+            color: var(--text);
+        }
+        .wiki-category {
+            display: inline-block;
+
+            margin-bottom: 9px;
+
+            color: var(--accent);
+
+            font-size: 0.72rem;
+            font-weight: 800;
+
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .quest-chapter {
+            margin-top: 28px;
+            margin-bottom: 18px;
+
+            padding: 18px 20px;
+
+            border-left: 4px solid var(--accent);
+            border-radius: 0 10px 10px 0;
+
+            background: rgba(120, 200, 80, 0.055);
+        }
+
+
+        .quest-chapter h3 {
+            margin: 0 0 6px;
+        }
+
+
+        .quest-chapter p {
+            margin: 0;
+        }
+
+
+        .quest-list {
+            display: grid;
+
+            gap: 14px;
+
+            margin-top: 18px;
+        }
+
+
+        .quest-card {
+            padding: 20px;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+
+        .quest-card h4 {
+            margin: 0 0 10px;
+
+            font-size: 1.05rem;
+        }
+
+
+        .quest-card p {
+            margin: 5px 0;
+
+            font-size: 0.93rem;
+        }
+
+
+        .quest-number {
+            color: var(--accent);
+
+            font-weight: 800;
+        }
+
+
+        .quest-giver {
+            color: var(--text);
+
+            font-weight: 700;
+        }
+
+
+        .quest-reward {
+            margin-top: 10px !important;
+
+            padding-top: 10px;
+
+            border-top: 1px solid var(--border);
+        }
+        .wiki-command {
+            display: inline-block;
+
+            margin: 6px 0 12px;
+            padding: 7px 11px;
+
+            border: 1px solid var(--border);
+            border-radius: 7px;
+
+            background: #0f1115;
+            color: var(--accent);
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 0.9rem;
+        }
+        .wiki-feature-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
+            gap: 14px;
+
+            margin-top: 18px;
+        }
+
+
+        .wiki-feature-card {
+            padding: 18px;
+
+            border: 1px solid var(--border);
+            border-radius: 11px;
+
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+
+        .wiki-feature-card h4 {
+            margin: 0 0 7px;
+        }
+
+
+        .wiki-feature-card p {
+            margin: 0;
+
+            font-size: 0.9rem;
+        }
+        .wiki-top-link {
+            display: inline-flex;
+
+            margin-top: 12px;
+
+            color: var(--accent);
+
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+        @media (max-width: 950px) {
+
+            .wiki-layout {
+                grid-template-columns: 1fr;
+            }
+
+
+            .wiki-sidebar {
+                position: static;
+
+                max-height: none;
+            }
+
+
+            .wiki-nav {
+                display: grid;
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
+
+                gap: 6px;
+            }
+
+
+            .wiki-nav-divider,
+            .wiki-nav-heading {
+                grid-column: 1 / -1;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .wiki-page {
+                padding: 45px 0 70px;
+            }
+
+
+            .wiki-nav {
+                grid-template-columns: 1fr;
+            }
+
+
+            .wiki-section {
+                padding: 22px 18px;
+            }
+
+
+            .wiki-feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .quest-card {
+                padding: 17px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body
+    class="mod-page kingdomquests-page"
+    data-mod-name="Kingdom Quests"
+    style="--mod-background: url('/assets/backgrounds/background5.png');"
+>
+
+
+<header class="site-header">
+
+    <div class="container">
+
+        <a
+            href="/"
+            class="logo"
+        >
+            Mat's Mods
+        </a>
+
+        <nav>
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/mods/java/">
+                Minecraft Java Mods
+            </a>
+
+            <a href="/mods/java/kingdomquests/">
+                Kingdom Quests
+            </a>
+
+            <a
+                href="https://github.com/Mattaann/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="wiki-page">
+
+    <div class="container">
+
+
+        <div
+            class="wiki-header"
+            id="top"
+        >
+
+            <p class="eyebrow">
+                Official Wiki
+            </p>
+
+            <h1>
+                Kingdom Quests Wiki
+            </h1>
+
+            <p>
+                Everything you need to know about the Kingdom Quests
+                campaign, quests, characters, progression, creatures,
+                integrated systems and administrative tools.
+            </p>
+
+        </div>
+
+
+        <div class="wiki-layout">
+            <aside class="wiki-sidebar">
+
+                <p class="wiki-sidebar-title">
+                    Kingdom Quests Wiki
+                </p>
+
+
+                <nav class="wiki-nav">
+
+                    <p class="wiki-nav-heading">
+                        Getting Started
+                    </p>
+
+                    <a href="#story">
+                        The Story
+                    </a>
+
+                    <a href="#quest-journal">
+                        Quest Journal
+                    </a>
+
+                    <a href="#quest-tracker">
+                        Quest Tracker
+                    </a>
+
+                    <a href="#quest-givers">
+                        Quest Givers
+                    </a>
+
+
+                    <div class="wiki-nav-divider"></div>
+
+
+                    <p class="wiki-nav-heading">
+                        Quests
+                    </p>
+
+                    <a href="#main-campaign">
+                        Main Campaign
+                    </a>
+
+                    <a href="#kingdom-challenges">
+                        Kingdom Challenges
+                    </a>
+
+                    <a href="#escort-recovery">
+                        Escort & Recovery Quests
+                    </a>
+
+
+                    <div class="wiki-nav-divider"></div>
+
+
+                    <p class="wiki-nav-heading">
+                        Progression
+                    </p>
+
+                    <a href="#martins-forge">
+                        Martin's Forge & MT Points
+                    </a>
+
+                    <a href="#living-kingdom">
+                        A Living Kingdom
+                    </a>
+
+
+                    <div class="wiki-nav-divider"></div>
+
+
+                    <p class="wiki-nav-heading">
+                        Creatures
+                    </p>
+
+                    <a href="#kingdom-drakes">
+                        Kingdom Drakes
+                    </a>
+
+                    <a href="#new-creatures">
+                        New Creatures
+                    </a>
+
+
+                    <div class="wiki-nav-divider"></div>
+
+
+                    <p class="wiki-nav-heading">
+                        Integrated Features
+                    </p>
+
+                    <a href="#integrated-minimap">
+                        Integrated Minimap
+                    </a>
+
+                    <a href="#damage-indicator">
+                        Damage Indicator
+                    </a>
+
+                    <a href="#inventory-safety">
+                        Inventory Safety
+                    </a>
+
+
+                    <div class="wiki-nav-divider"></div>
+
+
+                    <p class="wiki-nav-heading">
+                        Administration
+                    </p>
+
+                    <a href="#admin-menu">
+                        Admin Menu
+                    </a>
+
+                    <a href="#commands">
+                        Commands
+                    </a>
+
+                </nav>
+
+            </aside>
+
+            <div class="wiki-content">
+                <section
+                    class="wiki-section"
+                    id="story"
+                >
+
+                    <span class="wiki-category">
+                        Getting Started
+                    </span>
+
+                    <h2>
+                        The Story
+                    </h2>
+
+                    <p>
+                        When a new world is created, King Martin's
+                        kingdom is generated near world spawn.
+                    </p>
+
+                    <p>
+                        The settlement includes a detailed castle,
+                        a damaged village, roads, houses, a trading
+                        quarter, gardens, a fountain and a fortified
+                        outer wall with four gates and corner towers.
+                    </p>
+
+                    <p>
+                        You begin as an unknown traveler. Before accepting
+                        any quests, you must visit King Martin and listen
+                        to his request for help.
+                    </p>
+
+                    <p>
+                        Once the introduction is complete, a
+                        <strong>42-quest campaign</strong> opens across
+                        three chapters.
+                    </p>
+
+
+                    <h3>
+                        The Kingdom Changes With You
+                    </h3>
+
+                    <ul>
+                        <li>
+                            The village begins damaged and partially ruined.
+                        </li>
+
+                        <li>
+                            Houses and roads are gradually restored.
+                        </li>
+
+                        <li>
+                            New residents and merchants arrive.
+                        </li>
+
+                        <li>
+                            The settlement becomes fully rebuilt during
+                            the later campaign.
+                        </li>
+
+                        <li>
+                            Completing the story earns recognition as the
+                            <strong>Hero of the Kingdom</strong>.
+                        </li>
+                    </ul>
+
+
+                    <p>
+                        Kingdom Quests is designed for normal survival
+                        gameplay. Story quests must be accepted from their
+                        correct NPC, objectives begin tracking after
+                        acceptance and rewards are collected from the same
+                        quest giver.
+                    </p>
+
+
+                    <a
+                        href="#top"
+                        class="wiki-top-link"
+                    >
+                        Back to top ↑
+                    </a>
+
+                </section>
+
+                <section
+                    class="wiki-section"
+                    id="quest-journal"
+                >
+
+                    <span class="wiki-category">
+                        Quest System
+                    </span>
+
+                    <h2>
+                        Quest Journal
+                    </h2>
+
+                    <p>
+                        Every player receives a Kingdom Quest Journal
+                        when joining the world for the first time.
+                    </p>
+
+                    <p>
+                        Right-click the journal to open it.
+                    </p>
+
+
+                    <h3>
+                        Journal Categories
+                    </h3>
+
+                    <ul>
+                        <li>Active Quests</li>
+                        <li>Main Quests</li>
+                        <li>Adventure Quests</li>
+                        <li>Passive Quests</li>
+                        <li>Finished Quests</li>
+                        <li>Kingdom Progress</li>
+                        <li>Chapter introductions</li>
+                        <li>Quest giver information</li>
+                        <li>Quest Tracker Settings</li>
+                    </ul>
+
+
+                    <h3>
+                        Lost Your Journal?
+                    </h3>
+
+                    <p>
+                        Another journal can be obtained using:
+                    </p>
+
+                    <code class="wiki-command">
+                        /questbook
+                    </code>
+
+                </section>
+
+
+                <section
+                    class="wiki-section"
+                    id="quest-tracker"
+                >
+
+                    <span class="wiki-category">
+                        Quest System
+                    </span>
+
+                    <h2>
+                        Quest Tracker
+                    </h2>
+
+                    <p>
+                        Up to three accepted quests can be displayed
+                        on the HUD at the same time.
+                    </p>
+
+                    <p>
+                        Open an accepted quest in the journal and select:
+                    </p>
+
+                    <code class="wiki-command">
+                        Track Quest
+                    </code>
+
+
+                    <h3>
+                        Tracker Settings
+                    </h3>
+
+                    <ul>
+                        <li>Move the tracker</li>
+                        <li>Change its size</li>
+                        <li>Show or hide it</li>
+                        <li>Reset its position</li>
+                        <li>Manage up to three tracked quests</li>
+                    </ul>
+
+
+                    <h3>
+                        Introduction Guidance
+                    </h3>
+
+                    <p>
+                        Automatic guidance is displayed during the
+                        introduction.
+                    </p>
+
+                    <ol>
+                        <li>
+                            Go speak to King Martin.
+                        </li>
+
+                        <li>
+                            Go talk to any villager with a
+                            <strong>!</strong> to get a quest and begin
+                            your journey.
+                        </li>
+                    </ol>
+
+                    <p>
+                        These hints do not consume one of the three
+                        tracking slots and disappear automatically when
+                        their objective is completed.
+                    </p>
+
+                </section>
+
+
+                <section
+                    class="wiki-section"
+                    id="quest-givers"
+                >
+
+                    <span class="wiki-category">
+                        Characters
+                    </span>
+
+                    <h2>
+                        Quest Givers
+                    </h2>
+
+                    <div class="wiki-feature-grid">
+
+                        <div class="wiki-feature-card">
+                            <h4>King Martin</h4>
+                            <p>King of the Realm</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Tobias</h4>
+                            <p>Farmer</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Hugo</h4>
+                            <p>Miner</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Finn</h4>
+                            <p>Fisherman</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Arvin</h4>
+                            <p>Hunter</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Oscar</h4>
+                            <p>Master Builder</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Rowan</h4>
+                            <p>Forest Guardian</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Edmund</h4>
+                            <p>Village Elder</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Elric</h4>
+                            <p>Blacksmith</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Cedric</h4>
+                            <p>Priest</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Magnus</h4>
+                            <p>Cartographer</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Merchant Caravan</h4>
+                            <p>Caravan Master</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Martin's Messenger</h4>
+                            <p>Royal Messenger</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Royal Quartermaster</h4>
+                            <p>Quartermaster</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Merchant Guild</h4>
+                            <p>Guild Representative</p>
+                        </div>
+
+                    </div>
+
+
+                    <p style="margin-top: 22px;">
+                        An exclamation mark only appears above an NPC
+                        when that character currently has a quest the
+                        player can accept.
+                    </p>
+
+                </section>
+
+                <section
+                    class="wiki-section"
+                    id="main-campaign"
+                >
+
+                    <span class="wiki-category">
+                        Campaign
+                    </span>
+
+                    <h2>
+                        Main Campaign
+                    </h2>
+
+                    <p>
+                        The main story contains
+                        <strong>42 quests across three chapters</strong>.
+                    </p>
+
+
+            
+
+                    <div class="quest-chapter">
+
+                        <h3>
+                            Chapter 1 — A New Beginning
+                        </h3>
+
+                        <p>
+                            A poor and damaged royal village takes its
+                            first steps toward a better future.
+                        </p>
+
+                    </div>
+
+
+                    <div class="quest-list">
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">1.</span>
+                                Firewood Needed
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Tobias
+                            </p>
+
+                            <p>
+                                Deliver 32 Oak Logs.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                1 Emerald, Stone Axe and 1 XP Level.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">2.</span>
+                                Fuel for the Furnace
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Hugo
+                            </p>
+
+                            <p>
+                                Deliver 16 Coal and 32 Cobblestone.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Stone Pickaxe, 2 Emeralds and 2 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">3.</span>
+                                Fresh Catch
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Finn
+                            </p>
+
+                            <p>
+                                Deliver 10 Cod.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Fishing Rod with Luck of the Sea I,
+                                2 Emeralds and 2 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">4.</span>
+                                Hunter's Camp
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Arvin
+                            </p>
+
+                            <p>
+                                Find Arvin's hunting camp east of the
+                                castle and deliver 16 Cooked Beef.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Stone Sword, 3 Emeralds and 2 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">5.</span>
+                                Repair the Fence
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Oscar
+                            </p>
+
+                            <p>
+                                Deliver 24 Oak Planks and 16 Oak Fences.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Stone Shovel, 3 Emeralds and 2 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">6.</span>
+                                Lost Chickens
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Tobias
+                            </p>
+
+                            <p>
+                                Bring three chickens back to Tobias.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                4 Emeralds, 6 Bread and 3 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">7.</span>
+                                More Firewood
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Oscar
+                            </p>
+
+                            <p>
+                                Deliver 64 Spruce Logs.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Stone Axe with Efficiency I,
+                                4 Emeralds and 3 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">8.</span>
+                                The Village Stockpile
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Hugo
+                            </p>
+
+                            <p>
+                                Deliver 64 Cobblestone and 32 Coal.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Pickaxe, 4 Emeralds and 3 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">9.</span>
+                                Fishing Supplies
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Finn
+                            </p>
+
+                            <p>
+                                Deliver 10 Salmon and 10 Cod.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                5 Emeralds, Campfire and 3 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">10.</span>
+                                Hunter's Dinner
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Arvin
+                            </p>
+
+                            <p>
+                                Deliver 16 Cooked Porkchops to the
+                                hunting camp.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Bow, 16 Arrows, 5 Emeralds and 4 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">11.</span>
+                                Building Materials
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Oscar
+                            </p>
+
+                            <p>
+                                Deliver 64 Oak Planks and 32 Stone Bricks.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Axe, 5 Emeralds and 4 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">12.</span>
+                                The Village Mine
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Hugo
+                            </p>
+
+                            <p>
+                                Mine 32 Iron Ore after accepting the quest.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Helmet, 6 Emeralds and 5 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">13.</span>
+                                A Better Meal
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Tobias
+                            </p>
+
+                            <p>
+                                Deliver 16 Cooked Beef and
+                                16 Cooked Chicken.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                6 Emeralds, 8 Golden Carrots
+                                and 5 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">14.</span>
+                                Something in the Woods
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Rowan
+                            </p>
+
+                            <p>
+                                Find Rowan's forest outpost west of the
+                                castle and defeat 10 Zombies.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Sword, 7 Emeralds and 5 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">15.</span>
+                                Helping Hand
+                            </h4>
+
+                            <p>
+                                <span class="quest-giver">Quest giver:</span>
+                                Edmund
+                            </p>
+
+                            <p>
+                                Complete 10 Kingdom Quests.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Chestplate, 10 Emeralds
+                                and 8 XP Levels.
+                            </p>
+                        </article>
+
+                    </div>
+
+
+                    <div class="quest-chapter">
+
+                        <h3>
+                            Chapter 2 — A Growing Kingdom
+                        </h3>
+
+                        <p>
+                            The kingdom is recovering. New settlers are
+                            arriving, merchants are returning and old roads
+                            are being rebuilt. However, people continue to
+                            disappear beyond the walls.
+                        </p>
+
+                    </div>
+
+
+                    <div class="quest-list">
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">16.</span>
+                                Broken Bridge
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Oscar</p>
+
+                            <p>
+                                Deliver 64 Oak Planks, 32 Cobblestone
+                                and 16 Sticks.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Axe, 10 Emeralds and 5 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">17.</span>
+                                Lost Lumberjack
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Oscar</p>
+
+                            <p>
+                                Use the quest compass to find the missing
+                                lumberjack and escort him home.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Axe with Efficiency I,
+                                10 Emeralds and 5 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">18.</span>
+                                Fuel for the Forge
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Elric</p>
+
+                            <p>
+                                Deliver 64 Coal and 32 Iron Ingots.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Helmet, 10 Emeralds and 5 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">19.</span>
+                                Lost Merchant
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Edmund</p>
+
+                            <p>
+                                Find the missing merchant and escort him
+                                back to the village.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                12 Emeralds, two Potions of Swiftness
+                                and 6 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">20.</span>
+                                Road Security
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Arvin</p>
+
+                            <p>
+                                Defeat 20 Zombies and 15 Skeletons.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Sword with Sharpness I,
+                                12 Emeralds and 6 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">21.</span>
+                                Missing Scout
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Edmund</p>
+
+                            <p>
+                                Find Scout Rowan and escort him home.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Boots with Feather Falling I,
+                                12 Emeralds and 6 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">22.</span>
+                                Medicine Delivery
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Cedric</p>
+
+                            <p>
+                                Deliver 12 Red Mushrooms,
+                                12 Brown Mushrooms and 8 Sugar.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Two Potions of Healing,
+                                13 Emeralds and 6 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">23.</span>
+                                Lost Supplies
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Oscar</p>
+
+                            <p>
+                                Follow the quest compass, locate the
+                                Supply Crate and recover its unique
+                                quest item.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Shovel with Efficiency I,
+                                13 Emeralds and 7 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">24.</span>
+                                Monster Hunt
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Arvin</p>
+
+                            <p>
+                                Defeat 30 Zombies, 20 Skeletons
+                                and 10 Creepers.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Bow with Power I,
+                                14 Emeralds and 7 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">25.</span>
+                                The Lost Miner
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Hugo</p>
+
+                            <p>
+                                Find the trapped miner and escort him home.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Pickaxe with Efficiency I,
+                                15 Emeralds and 7 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">26.</span>
+                                Blacksmith's Request
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Elric</p>
+
+                            <p>
+                                Deliver 48 Iron Ingots and 16 Coal.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Chestplate with Protection I,
+                                15 Emeralds and 8 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">27.</span>
+                                Abandoned Watchtower
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Edmund</p>
+
+                            <p>
+                                Find the abandoned watchtower and recover
+                                its unique Watch Banner.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Shield, 16 Emeralds and 8 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">28.</span>
+                                Trade Caravan
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Merchant Caravan</p>
+
+                            <p>
+                                Deliver 32 Bread, 32 Cooked Beef
+                                and 32 Iron Ingots.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Two Potions of Strength,
+                                18 Emeralds and 8 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">29.</span>
+                                Missing Builder
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Oscar</p>
+
+                            <p>
+                                Find the missing builder and escort him home.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Pickaxe with Efficiency II,
+                                18 Emeralds and 9 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">30.</span>
+                                Guardian of the Kingdom
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Martin's Messenger</p>
+
+                            <p>
+                                Defeat 50 hostile mobs.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Iron Sword with Sharpness II,
+                                Iron Chestplate with Protection I,
+                                20 Emeralds and 10 XP Levels.
+                            </p>
+                        </article>
+
+                    </div>
+
+                    <div class="quest-chapter">
+
+                        <h3>
+                            Chapter 3 — The King's Call
+                        </h3>
+
+                        <p>
+                            Your actions have reached King Martin.
+                            The kingdom is stronger, but distant
+                            settlements have gone silent. The remaining
+                            missions will decide the realm's future.
+                        </p>
+
+                    </div>
+
+
+                    <div class="quest-list">
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">31.</span>
+                                Royal Supplies
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Royal Quartermaster</p>
+
+                            <p>
+                                Deliver 64 Bread, 64 Cooked Beef
+                                and 32 Golden Carrots.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Diamond Helmet, 20 Emeralds
+                                and 10 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">32.</span>
+                                Lost Captain
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Edmund</p>
+
+                            <p>
+                                Travel far beyond the kingdom, find
+                                Captain Roland and escort him home.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Diamond Sword, 22 Emeralds
+                                and 10 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">33.</span>
+                                Armor for the Army
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Elric</p>
+
+                            <p>
+                                Deliver 64 Iron Ingots and 32 Leather.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Diamond Chestplate, 22 Emeralds
+                                and 11 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">34.</span>
+                                Missing Farmers
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Cedric</p>
+
+                            <p>
+                                Find Farmer Thomas and Farmer William
+                                and escort both safely home.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Diamond Boots, 23 Emeralds
+                                and 11 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">35.</span>
+                                Secure the Roads
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Arvin</p>
+
+                            <p>
+                                Defeat 25 Zombies, 20 Skeletons
+                                and 15 Creepers.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Bow with Power II, 24 Emeralds
+                                and 12 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">36.</span>
+                                Lost Caravan
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Merchant Guild</p>
+
+                            <p>
+                                Find the abandoned merchant caravan
+                                and recover its Caravan Supplies.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Diamond Pickaxe, 25 Emeralds
+                                and 12 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">37.</span>
+                                The Missing Engineer
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Oscar</p>
+
+                            <p>
+                                Find the Royal Engineer and escort her
+                                back to the kingdom.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Diamond Leggings, 26 Emeralds
+                                and 13 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">38.</span>
+                                Royal Shipment
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> Royal Quartermaster</p>
+
+                            <p>
+                                Deliver 64 Iron Ingots,
+                                32 Gold Ingots and 16 Diamonds.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Diamond Pickaxe with Efficiency III,
+                                28 Emeralds and 13 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">39.</span>
+                                Royal Messenger
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> King Martin</p>
+
+                            <p>
+                                Find the Royal Messenger and escort him
+                                safely back to the castle.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                Diamond Sword with Sharpness III,
+                                30 Emeralds and 15 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">40.</span>
+                                Audience with the King
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> King Martin</p>
+
+                            <p>
+                                Return to the castle and speak with
+                                King Martin.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                20 Emeralds and 10 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">41.</span>
+                                The King's Final Request
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> King Martin</p>
+
+                            <p>
+                                Deliver 32 Diamonds, 64 Gold Ingots
+                                and 1 Nether Star.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                King's Champion Sword,
+                                King's Chestplate,
+                                40 Emeralds and 20 XP Levels.
+                            </p>
+                        </article>
+
+
+                        <article class="quest-card">
+                            <h4>
+                                <span class="quest-number">42.</span>
+                                Hero of the Kingdom
+                            </h4>
+
+                            <p><span class="quest-giver">Quest giver:</span> King Martin</p>
+
+                            <p>
+                                Return to King Martin for the campaign's
+                                conclusion.
+                            </p>
+
+                            <p class="quest-reward">
+                                <strong>Reward:</strong>
+                                King's Banner, Hero's Medal,
+                                64 Emeralds and Kingdom Quests
+                                Completed status.
+                            </p>
+                        </article>
+
+
+                    </div>
+
+                </section>
+                <section
+                    class="wiki-section"
+                    id="kingdom-challenges"
+                >
+
+                    <span class="wiki-category">
+                        Passive Progression
+                    </span>
+
+                    <h2>
+                        Kingdom Challenges
+                    </h2>
+
+                    <p>
+                        Kingdom Challenges are passive lifetime goals.
+                        They do not need to be accepted from an NPC.
+                    </p>
+
+                    <p>
+                        Progress is recorded automatically and rewards
+                        can be claimed directly from the journal.
+                    </p>
+
+
+                    <ol>
+                        <li><strong>Zombie Slayer</strong> — Defeat 150 Zombies.</li>
+                        <li><strong>Skeleton Hunter</strong> — Defeat 150 Skeletons.</li>
+                        <li><strong>Spider Exterminator</strong> — Defeat 100 Spiders.</li>
+                        <li><strong>End Stalker</strong> — Defeat 75 Endermen.</li>
+                        <li><strong>Creeper Cleaner</strong> — Defeat 100 Creepers.</li>
+                        <li><strong>Master Miner</strong> — Mine 2,500 valuable ore blocks.</li>
+                        <li><strong>Lumberjack</strong> — Chop 2,000 logs.</li>
+                        <li><strong>Farmer's Pride</strong> — Harvest 1,000 crops.</li>
+                        <li><strong>Fisherman</strong> — Catch 250 fish with a fishing rod.</li>
+                        <li><strong>Monster Hunter</strong> — Defeat 1,000 hostile mobs.</li>
+                        <li><strong>Explorer</strong> — Discover 25 different biomes.</li>
+                        <li><strong>Dragon Bane</strong> — Defeat 25 hostile Kingdom Drakes.</li>
+                        <li><strong>Treasure Hunter</strong> — Open 50 chests.</li>
+                        <li><strong>The Survivor</strong> — Remain alive for 100 consecutive Minecraft days.</li>
+                        <li><strong>Completionist</strong> — Complete the entire campaign and every other Kingdom Challenge.</li>
+                    </ol>
+
+
+                    <p>
+                        Challenge rewards include Emeralds, experience
+                        levels, enchanted equipment, enchanted books,
+                        a Totem of Undying, Netherite and special chat
+                        titles.
+                    </p>
+
+                </section>
+                <section
+                    class="wiki-section"
+                    id="escort-recovery"
+                >
+
+                    <span class="wiki-category">
+                        Quest Types
+                    </span>
+
+                    <h2>
+                        Escort and Recovery Quests
+                    </h2>
+
+                    <p>
+                        When a quest requires the player to find a person
+                        or recover an item, the objective is generated on
+                        safe terrain somewhere in the world.
+                    </p>
+
+                    <p>
+                        The quest giver provides a named compass pointing
+                        toward the target.
+                    </p>
+
+
+                    <h3>
+                        Escort Quests
+                    </h3>
+
+                    <ol>
+                        <li>Follow the quest compass.</li>
+                        <li>Find the missing person.</li>
+                        <li>Right-click the correct NPC.</li>
+                        <li>Select <strong>Follow me</strong>.</li>
+                        <li>Lead the person safely back to the kingdom.</li>
+                    </ol>
+
+
+                    <p>
+                        Only NPCs connected to an active escort quest
+                        display the <strong>Follow me</strong> option.
+                    </p>
+
+                    <p>
+                        Rescued characters become permanent residents and
+                        continue living within the royal village.
+                    </p>
+
+
+                    <h3>
+                        Recovery Quests
+                    </h3>
+
+                    <p>
+                        Recovery objectives use uniquely named quest
+                        items. Ordinary Bundles or Banners cannot complete
+                        these quests accidentally.
+                    </p>
+
+                </section>
+
+                <section
+                    class="wiki-section"
+                    id="martins-forge"
+                >
+
+                    <span class="wiki-category">
+                        Progression
+                    </span>
+
+                    <h2>
+                        Martin's Forge and MT Points
+                    </h2>
+
+                    <p>
+                        Martin's Forge is located beside King Martin
+                        inside the castle.
+                    </p>
+
+                    <p>
+                        MT Points are earned from main quests and Kingdom
+                        Challenges. The campaign provides enough points
+                        to purchase every permanent attribute upgrade.
+                    </p>
+
+
+                    <h3>
+                        Permanent Upgrades
+                    </h3>
+
+                    <p>
+                        Each category contains ten levels.
+                    </p>
+
+                    <div class="wiki-feature-grid">
+
+                        <div class="wiki-feature-card">
+                            <h4>Vitality</h4>
+                            <p>Increases maximum health.</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Swiftness</h4>
+                            <p>Increases movement speed.</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Strength</h4>
+                            <p>Increases attack damage.</p>
+                        </div>
+
+                    </div>
+
+
+                    <h3>
+                        Equipment Upgrades
+                    </h3>
+
+                    <p>
+                        Hold a compatible item in your main hand before
+                        opening Martin's Forge.
+                    </p>
+
+                    <ul>
+                        <li>Sharpness up to level V</li>
+                        <li>Efficiency up to level V</li>
+                        <li>Unbreaking up to level III</li>
+                    </ul>
+
+                    <p>
+                        The Forge displays the currently held item and
+                        the cost before an upgrade is purchased.
+                    </p>
+
+                </section>
+                <section
+                    class="wiki-section"
+                    id="living-kingdom"
+                >
+
+                    <span class="wiki-category">
+                        World
+                    </span>
+
+                    <h2>
+                        A Living Kingdom
+                    </h2>
+
+                    <p>
+                        The settlement changes as the player progresses.
+                    </p>
+
+                    <ul>
+                        <li>Ruined houses are gradually rebuilt.</li>
+                        <li>Roads and trading areas are restored.</li>
+                        <li>Quest-giver homes contain appropriate workstations.</li>
+                        <li>Ordinary villagers live and trade within the settlement.</li>
+                        <li>The village includes a fountain, trees, grass, flowers and illuminated roads.</li>
+                        <li>The castle contains a throne hall, library, forge, towers, battlements and royal decorations.</li>
+                        <li>A fortified outer wall surrounds the entire settlement.</li>
+                        <li>Hostile creatures cannot spawn within the walls.</li>
+                        <li>Hostile dragons are kept far away from the kingdom.</li>
+                        <li>Loose items created during world generation are cleaned automatically.</li>
+                        <li>Quest givers are persistent and invulnerable.</li>
+                        <li>Villagers remain near their homes and are returned if pathfinding takes them too far away or onto a roof.</li>
+                    </ul>
+
+                    <p>
+                        Players may build within the kingdom, but King
+                        Martin asks them to respect the residents and
+                        their homes.
+                    </p>
+
+                </section>
+
+
+                <section
+                    class="wiki-section"
+                    id="kingdom-drakes"
+                >
+
+                    <span class="wiki-category">
+                        Creatures
+                    </span>
+
+                    <h2>
+                        Kingdom Drakes
+                    </h2>
+
+                    <p>
+                        Hostile Kingdom Drakes can be encountered in the
+                        wider world.
+                    </p>
+
+                    <ul>
+                        <li>Crimson Kingdom Drake</li>
+                        <li>Azure Kingdom Drake</li>
+                        <li>Verdant Kingdom Drake</li>
+                    </ul>
+
+
+                    <h3>
+                        Behaviour
+                    </h3>
+
+                    <ul>
+                        <li>Are hostile toward players.</li>
+                        <li>Can fly and launch explosive fireballs.</li>
+                        <li>Grant substantial experience and valuable loot.</li>
+                        <li>Have unique colors and spawn eggs.</li>
+                        <li>Cannot spawn near the castle.</li>
+                        <li>Count toward the Dragon Bane challenge.</li>
+                    </ul>
+
+                    <p>
+                        There is no guardian dragon above the castle.
+                    </p>
+
+                </section>
+                <section
+                    class="wiki-section"
+                    id="new-creatures"
+                >
+
+                    <span class="wiki-category">
+                        Creatures
+                    </span>
+
+                    <h2>
+                        New Creatures
+                    </h2>
+
+                    <p>
+                        Kingdom Quests includes the complete Kingdom
+                        Quests Mobs module.
+                    </p>
+
+
+                    <div class="wiki-feature-grid">
+
+                        <div class="wiki-feature-card">
+                            <h4>Alligators</h4>
+                            <p>Use hostile spawning rules.</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Deer</h4>
+                            <p>New wildlife added to the world.</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Ostriches</h4>
+                            <p>New wildlife added to the world.</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Trolls</h4>
+                            <p>Use hostile spawning rules.</p>
+                        </div>
+
+                        <div class="wiki-feature-card">
+                            <h4>Sharks</h4>
+                            <p>
+                                Only pursue and attack targets while both
+                                the shark and its target are in water.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <p style="margin-top: 22px;">
+                        Spawn eggs for all creatures are available in
+                        Creative Mode.
+                    </p>
+
+                </section>
+
+                <section
+                    class="wiki-section"
+                    id="integrated-minimap"
+                >
+
+                    <span class="wiki-category">
+                        Integrated Feature
+                    </span>
+
+                    <h2>
+                        Integrated Minimap
+                    </h2>
+
+                    <p>
+                        Mat's Minimap is included directly inside Kingdom
+                        Quests.
+                    </p>
+
+                    <ul>
+                        <li>Real-time terrain map</li>
+                        <li>Cave layers</li>
+                        <li>Waypoints</li>
+                        <li>Configurable position and size</li>
+                        <li>Entity markers</li>
+                        <li>Loose-item markers</li>
+                        <li>Dedicated settings menu</li>
+                    </ul>
+
+                    <p>
+                        No separate minimap mod is required.
+                    </p>
+
+                </section>
+
+                <section
+                    class="wiki-section"
+                    id="damage-indicator"
+                >
+
+                    <span class="wiki-category">
+                        Integrated Feature
+                    </span>
+
+                    <h2>
+                        Integrated Damage Indicator
+                    </h2>
+
+                    <p>
+                        Mat's Damage Indicator is also included directly.
+                    </p>
+
+                    <ul>
+                        <li>Target health display</li>
+                        <li>Health bar</li>
+                        <li>Damage popups</li>
+                        <li>Configurable HUD position</li>
+                        <li>Color settings</li>
+                        <li>Adjustable text and layout options</li>
+                    </ul>
+
+                    <p>
+                        No separate damage-indicator mod is required.
+                    </p>
+
+                </section>
+
+                <section
+                    class="wiki-section"
+                    id="inventory-safety"
+                >
+
+                    <span class="wiki-category">
+                        Safety
+                    </span>
+
+                    <h2>
+                        Inventory Safety
+                    </h2>
+
+                    <p>
+                        Important rewards and quest items are never
+                        silently lost when the player's inventory is full.
+                    </p>
+
+                    <p>
+                        The mod fills available inventory slots first.
+                        Any remaining items are dropped at the player's
+                        feet with a short pickup delay and a warning is
+                        displayed.
+                    </p>
+
+
+                    <h3>
+                        Protected Items
+                    </h3>
+
+                    <ul>
+                        <li>Quest rewards</li>
+                        <li>Quest compasses</li>
+                        <li>Recovery compasses</li>
+                        <li>Starter kits</li>
+                        <li>Replacement kits</li>
+                        <li>Quest Journals</li>
+                    </ul>
+
+                    <p>
+                        After dying, players can return to King Martin
+                        and request another basic starter kit.
+                    </p>
+
+                </section>
+
+                <section
+                    class="wiki-section"
+                    id="admin-menu"
+                >
+
+                    <span class="wiki-category">
+                        Administration
+                    </span>
+
+                    <h2>
+                        Admin Menu
+                    </h2>
+
+                    <p>
+                        The hidden admin menu is opened with:
+                    </p>
+
+                    <code class="wiki-command">
+                        /matskingdom
+                    </code>
+
+                    <p>
+                        The command requires Game Master or operator
+                        permission. On a multiplayer server, the player
+                        must be OP or have equivalent command permissions.
+                    </p>
+
+
+                    <h3>
+                        Admin Features
+                    </h3>
+
+                    <ul>
+                        <li>Display every quest</li>
+                        <li>Navigate between quest pages</li>
+                        <li>Complete any quest without accepting it</li>
+                        <li>Grant the quest's normal rewards</li>
+                        <li>Grant the quest's MT Points</li>
+                        <li>Add 10 MT Points</li>
+                        <li>Add 50 MT Points</li>
+                        <li>Add 100 MT Points</li>
+                        <li>Remain on the currently selected page after an action</li>
+                    </ul>
+
+                    <p>
+                        Every admin action is validated by the server.
+                        A modified client cannot use the menu without the
+                        required permissions.
+                    </p>
+
+                </section>
+
+                <section
+                    class="wiki-section"
+                    id="commands"
+                >
+
+                    <span class="wiki-category">
+                        Commands
+                    </span>
+
+                    <h2>
+                        Commands
+                    </h2>
+
+
+                    <h3>
+                        Quest Journal
+                    </h3>
+
+                    <code class="wiki-command">
+                        /questbook
+                    </code>
+
+                    <p>
+                        Provides a replacement Kingdom Quest Journal.
+                    </p>
+
+
+                    <h3>
+                        Admin Menu
+                    </h3>
+
+                    <code class="wiki-command">
+                        /matskingdom
+                    </code>
+
+                    <p>
+                        Opens the hidden admin menu. Requires operator
+                        or Game Master permission.
+                    </p>
+
+
+                    <a
+                        href="#top"
+                        class="wiki-top-link"
+                    >
+                        Back to top ↑
+                    </a>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<footer>
+
+    <div class="container footer-content">
+
+        <a
+            href="/"
+            class="logo"
+        >
+            Mat's Mods
+        </a>
+
+        <p>
+            Minecraft mods built with a focus on useful features,
+            customization and enjoyable gameplay.
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
